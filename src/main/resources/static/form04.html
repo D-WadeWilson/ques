@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>调查问卷职工类别：注销户</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 	
+      	<!-- 引入 Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/style.css" />
+	</head>
+	
+	
+	<body>
+		<form role='form'>
+			<ul>
+			
+			<!--问卷调查人基本信息-->
+				<li class="step1">
+					<div class="container" >
+					 	<div class="row">
+					 		<div class="tittle">基本信息</div>
+					 		
+							<div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">困难职工姓名</label>
+							    <div class="col-xs-9" >
+							       <input type="text" class="form-control" id="name" placeholder="请输入困难职工姓名">
+							    </div>
+						    </div>
+						    <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">联系电话</label>
+							    <div class=" col-xs-9" >
+							       <input type="text" class="form-control" id="phone" placeholder="请输入号码">
+							    </div>
+						    </div>
+						    <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label" >(原)工作单位</label>
+							    <div class=" col-xs-9" >
+							       <input type="text" class="form-control" id="company" placeholder="请输入(原)工作单位">
+							    </div>
+							  </div>    
+						    <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">家庭地址 </label>
+							    <div class="outer">
+										<select name="province" id="province">
+											<option value="请选择">请选择</option>
+										</select>
+										<select name="city" id="city">
+											<option value="请选择">请选择</option>
+										</select>
+										<select name="town" id="town">
+											<option value="请选择">请选择</option>
+										</select>
+								</div>						    
+							</div>
+							<div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">详细地址</label>
+							    <div class=" col-xs-9" >
+							       <input type="text" class="form-control" id="house" placeholder="请输入街道、小区等信息">
+							    </div>
+							 </div> 
+					</div>	
+					<button type="button" class="previous btn btn-primary col-xs-5">问卷列表</button>
+					<div class="col-xs-2"></div>
+					<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+				</li>
+				
+				<!--基本情况，核查档案填写-->
+				<li class="step2">
+					<div class="container" >
+					 	<div class="row">
+					 		<div class="tittle">一、基本情况(核查档案填写)</div>
+							
+							
+							<div class="question">
+								<p>1.您是职工(有劳动关系(合同)或工会会员证证明)或者农民工(6个月工资流水或社保缴费记录的城里有居住场所的非城镇户籍人员)吗？</p>
+								<div id="Q1">
+									<label class="radio-inline">
+								        <input type="radio"  name="Q1" id="" value="1" > 是(继续调查);
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q1" id=""  value="2" > 否(结束调查)。
+								    </label>
+								</div>
+							</div>
+							
+							
+							
+							<div class="question">
+								<p>2.性别：</p>
+								<div>
+									<label class="radio-inline">
+										<input type="radio" name="Q2" id="" value="1">男
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="Q2" id="" value="2">女
+									</label>
+								</div>
+							</div>
+							
+							
+							
+							<div class="question">
+								<p>3.年龄：</p>
+								<div>
+								    <label class="checkbox-inline">
+<input type="text" class="form-inline input_after_text" id="Q3" placeholder="" style="">岁</input>
+								    </label>
+								</div>
+							</div>
+							
+							
+							
+							<div class="question">
+					 			<p>4.婚姻状况：</p>
+								<div>
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q4" id="" value="1" > 未婚
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q4" id=""  value="2" > 已婚
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q4" id=""  value="3" > 离异
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q4" id=""  value="4" > 丧偶
+								    </label>
+								</div>
+					 		</div>
+					 		
+					 		
+					 		
+					 		<div class="question">
+					 			<p>5.从事的行业：</p>
+								<div id="Q5">
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q5" id="" value="1" > 制造业
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="2" > 建筑业
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="3" > 交通运输业
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="4" > 服务业
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="5" > 教育
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="6" > 国防
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="7" > 金融
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="8" > 机关事业
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="9" > 其他
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="A" > 无
+								    </label>
+								</div>
+					 		</div>
+						</div>
+						
+						
+						
+						<div class="question">
+					 			<p>6.建档时的家庭年度总收入总计为
+<input type="text" class="form-inline input_after_text" id="Q6-1" placeholder="" style="">   元(记为D)，
+其中工薪收入(家庭成员的工资收入，家庭成员有劳动能力无收入、或收入明显偏低需有合理理由)为
+<input type="text" class="form-inline input_after_text" id="Q6-2" placeholder="" style="">元，
+经营净收入为(通过经营性的生产经营活动而取得的收益)为
+<input type="text" class="form-inline input_after_text" id="Q6-3" placeholder="" style="">元，
+财产性收入(如利息、红利、房租收入等)为
+<input type="text" class="form-inline input_after_text" id="Q6-4" placeholder="" style="">元，
+转移性收入<br />(如养老金、离退休金等，不含低保、救助金)为
+<input type="text" class="form-inline input_after_text" id="Q6-5" placeholder="" style="">元。
+					 			</p>
+					 		</div>
+					 		
+					 		
+					 		
+					 		<div class="question">
+					 			<p>7.家庭构成情况：家庭共同生活人口(户口本、结婚证等相关证明)
+<input type="text" class="form-inline input_after_text" id="Q7" placeholder="" style="">人(记为C)。
+					 			</p>
+					 		</div>
+					 		
+					 		
+					 		
+					 		<div class="question"><p>8.
+您的家庭人均月可支配收入((家庭总收入D-所得税-五险一金)÷12÷家庭共同生活人口数C)为
+<input type="text" class="form-inline input_after_text" id="Q8" placeholder="" style="">元(记为A)。
+					 			</p>
+					 		</div>
+					 		
+					 		
+					 		<div class="question">
+					 			<p>9.
+您的家庭一年内因患病、子女上学、残疾、单亲及其它意外灾害造成支出费用总计为
+<input type="text" class="form-inline input_after_text" id="Q9-1" placeholder="" style="">元(记为E)，
+其中患病费用(包括医保内的自费部分(出院费用清单)和看病用的门诊、住院护理等自费费用，不含生活费用支出。此外，该职工的配偶子女也算，但如果其父母则需要看是否由兄弟姐妹并平均分担费用)共计
+<input type="text" class="form-inline input_after_text" id="Q9-2" placeholder="" style="">元，
+子女上学费用(高中(职高)、中专、大学(不含研究生)学校学费)为
+<input type="text" class="form-inline input_after_text" id="Q9-3" placeholder="" style="">元，
+残疾费用(治疗残疾的费用)为
+<input type="text" class="form-inline input_after_text" id="Q9-4" placeholder="" style="">元，
+意外事故造成的损失为(因发生自然灾害或重大安全事故造成重大人身伤害或住宅、家庭生活必需用品损毁严重)
+<input type="text" class="form-inline input_after_text" id="Q9-5" placeholder="" style="">元，
+其他特殊原因造成的损失(因交通事故等意外事件，造成重大人身伤害，责任赔付不能及时到位或者无责任赔付方的家庭)为
+<input type="text" class="form-inline input_after_text" id="Q9-6" placeholder="" style="">元。
+					 			</p>
+					 		</div>
+					  </div>
+				</div>
+					<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+					<div class="col-xs-2"></div>
+			  		<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+				</li>
+			
+			<li class="step3">
+				<div class="container">
+					<div class="tittle">二、核查注销情形(查错退)(核查档案填写)</div>
+						<div class="question">
+ 							<p>10.您注销困难职工的原因有哪些？</p>
+ 							<div id="Q10">
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="1" name="Q10"> 退休
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="2" name="Q10"> 死亡
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="3" name="Q10"> 失踪
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="4" name="Q10"> 迁出
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="5" name="Q10"> 解除劳动关系
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="6" name="Q10"> 符合不予建档条件
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="7" name="Q10"> 主动申请退出
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="8" name="Q10"> 其他<input type="text" class="form-inline input_after_text" id="Q10" placeholder="" style="">
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="cuotui" value="9" name="Q10"> 被错退
+								    </label>
+								</div>
+ 						</div>
+					</div>
+					
+					<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+					<div class="col-xs-2"></div>
+			  		<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+			</li>
+			
+			<li class="step4">
+				<div class="container">
+					<div class="tittle">三、核查建档情形(差错评)(核查档案填写)</div>
+					<div class="question"><p>I.建档类别</p></div>
+					
+					<div class="question">
+					 			<p>11.是否进行家庭信息比对？</p>
+					 			<div id="Q11">
+					 				<label class="radio-inline">
+								        <input type="radio"  name="Q11" id="" value="1" > 是(跳到第13题)
+						    			</label>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q11" id="" value="2" > 否
+						    			</label>
+					 			</div>
+					</div>
+					 		
+					 		
+					 		
+					<div class="question">
+					 			<p>12.您建档时符合以下不予建档的情形吗？(符合除最后一种情形意外的条件之一即视为符合，调查结束)</p>
+					 		<div id="Q12">
+					
+								<label class="radio-inline">
+							       <input type="radio" name="Q12" id=""  value="1" > 职工家庭拥有2套(含)以上住房的(人均住房面积不超过当地最低住房保障标准规定的除外);
+							    </label>
+							    <label class="radio-inline">
+							        <input type="radio" name="Q12" id=""  value="2" > 职工拥有商业店铺、厂房等生产经营房产或雇佣他人从事经营活动;
+							    </label>
+							    <label class="radio-inline">
+							        <input type="radio" name="Q12" id=""  value="3" > 职工非受雇佣经常使用机动车、船舶、工程机械以及大型农具的(特别规定除外);
+							    </label>
+							    <label class="radio-inline">
+							        <input type="radio" name="Q12" id=""  value="4" > 职工是已实行社会化管理的退休人员;
+							    </label>
+							    <label class="radio-inline">
+							        <input type="radio" name="Q12" id=""  value="5" > 本人或家庭成员拥有正常劳动力，在失业后一年内无故拒绝工会和其他部门3次(含)以上就业推荐的;
+							    </label>
+							    <label class="radio-inline">
+							        <input type="radio" name="Q12" id=""  value="6" > 子女进入高收费私立学校或自费出国留学的。
+							    </label>
+							    <label class="radio-inline">
+							        <input type="radio" name="Q12" id=""  value="7" > 无以上情形(继续调查)
+							    </label>
+							    </div>
+					 		</div>
+					 		
+					 		
+					 		
+					 		<div class="question">
+					 			<p>13.您所在地区最低生活保障标准的家庭人均收入为<input type="text" class="form-inline input_after_text" id="Q13" placeholder="" style="">元(记为B)</p>
+					 		</div>
+					 		
+					 		
+					 		
+					 		<div class="question"><p>14.您满足以下哪个条件？</p>
+								<div id="Q14">
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q14" id="" value="1" > 非其他原因致困户(低保户且满足条件A≤B)(全国级)
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q14" id="" value="2" > 非其他原因致困户(非低保户且连续6个月以上满足条件A≤B)(全国级)
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q14" id="" value="3" > 非其他原因致困户(非低保户且满足条件A≤1.5XB)(省级)
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q14" id="" value="4" > 非其他原因致困户(非低保户且满足条件A≤2XB)(市级)
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q14" id="" value="5" > 非其他原因致困户(满足条件A≤3B)(全国级)
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q15" id="" value="6" > 其他原因致困户(满足条件A＞3B)(全国级)
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q15" id="" value="7" > 困难农民工户(农民工且满足前述条件之一)
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q15" id="" value="8" > 都不满足(结束调查)
+								    </label>
+								</div>
+					 		</div>
+					 		
+					 		
+					 		<div class="question"><p>II.建档条件</p></div>
+								<div class="question">
+									<p>15.若您是其他原因致困户，那您的家庭是否满足条件(D+投资性净资产+储蓄-E)÷C÷12≤B？或者若您是非其他原因致困户，那您的家庭是否满足条件(D-E)÷C÷12≤B？</p>
+									 <div id="Q15">
+									 	<label class="radio-inline">
+								       		 <input type="radio"  name="Q15" id="" value="1" > 是
+								    		</label>
+								    		<label class="radio-inline">
+								       		 <input type="radio"  name="Q15" id="" value="2" > 否(结束调查)
+								   		</label>
+									 </div>
+								</div>	
+							</div>
+				</div>
+				
+				<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+				<div class="col-xs-2"></div>
+			  	<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+			</li>
+			
+			<li class="step5">
+					
+					<div class="container">
+						<div class="row">
+							<div class="tittle">四、帮扶认可度(电话调查)</div>
+							
+							<div class="question">
+ 								<p>16.您对帮扶成效觉得满意满？</p>
+ 								<label class="radio-inline">
+ 									<input type="radio"  name="Q16" id="" value="1" >满意
+ 								</label>
+ 								<label class="radio-inline">
+ 									<input type="radio"  name="Q16" id="" value="2" >一般
+ 								</label>
+ 								<label class="radio-inline">
+ 									<input type="radio"  name="Q16" id="" value="3" >不满意，原因
+ 				<input type="text" class="form-inline input_after_text" id="Q16" placeholder="" style="">。
+ 								</label>
+ 						</div>
+ 						
+ 						
+ 						
+ 						<div class="question">
+ 							<p>17.您是否了解帮扶救助政策？</p>
+ 							<div id="Q17">
+ 								<label class="radio-inline">
+ 								<input type="radio"  name="Q17" id="" value="1" >了解
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q17" id="" value="2" >基本了解
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q17" id="" value="3" >不清楚(跳到第19题)
+ 							</label>
+ 							</div>
+ 						</div>
+ 						
+ 						
+ 						
+ 						<div class="question">
+ 							<p>18.您是从哪种渠道知晓帮扶救助政策？</p>
+ 							<div id="Q18">
+ 								<label class="radio-inline">
+ 								<input type="radio"  name="Q18" id="" value="1" >工会
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q18" id="" value="2" >网络
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q18" id="" value="3" >电视报纸等媒体
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q18" id="" value="4" >街道、社区宣传栏
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q18" id="" value="5" >发放传单
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q18" id="" value="6" >邻居
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q18" id="" value="7" >其他
+<input type="text" class="form-inline input_after_text" id="Q18" placeholder="" style="">。
+ 							</label>
+ 							</div>
+ 						</div>
+ 						
+ 						
+ 						
+ 						<div class="question">
+ 							<p>19.您对帮扶救助政策的宣传方式和力度是否满意？</p>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q19" id="" value="1" >满意
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q19" id="" value="2" >一般
+ 							</label>
+ 							<label class="radio-inline">
+ 								<input type="radio"  name="Q19" id="" value="3" >不满意，原因
+<input type="text" class="form-inline input_after_text" id="Q19" placeholder="" style="">。
+ 							</label>
+ 						</div>
+ 					</div>
+ 					</div>
+ 					
+ 					<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+					<div class="col-xs-2"></div>
+			  		<button type="button" class="col-xs-5 btn  btn-primary" onclick="submitinfo()" id="confirmbtn">提交</button>
+			</li>
+			
+			
+			
+			
+			</ul>
+		</form>
+	</body>
+</html>
+
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+     
+      <script type="text/javascript" src="js/area.js" ></script>
+      <script type="text/javascript" src="js/select.js" ></script>	
+	
+<script>
+	window.history.forward(-1);
+	$(document).ready(function(){
+	
+		$(".step1").siblings().hide();
+		
+		$('.step1 .next_button').on('click',function  () {	
+			var name = $('#name').val();//姓名
+			var phone = $('#phone').val();//电话
+			var company = $('#company').val();//工作单位
+			var city = $('#city').val();//市
+			var town = $('#town').val();//区县等
+			var house = $('#house').val();//街道小区
+//			$('.step2').show();
+//				$('.step2').siblings().hide();
+			if (typeof(name)=="undefined" || typeof(phone)=="undefined" || typeof(company)=="undefined" || typeof(city)=="undefined" || typeof(town)=="undefined" || typeof(house)=="undefined" || name=="" || phone=="" || company=="" || city=="请选择" || town=="请选择"||house=="") {
+				alert("基本信息未填写完整！");
+				return;
+			} else {
+				$('.step2').show();
+				$('.step2').siblings().hide();
+			}
+		});
+		$('.step1 .previous').on('click',function  () {	
+			window.location.href='list.html';
+		});
+		
+		$('.step2 .next_button').on('click',function  () {	
+			if (typeof($("input[name='Q1']:checked").val())=="undefined") {
+	        		alert("第1题尚未作答！");
+	       		return;
+			}
+			if ($("input[name='Q1']:checked").val()!=2) {
+				if (typeof($("input[name='Q2']:checked").val())=="undefined") {
+		        		alert("第2题尚未作答！");
+		       		return;
+				}
+				if ($('#Q3').val().length==0) {
+		        		alert("第3题尚未作答！");
+		       		return;
+				}
+				if (typeof($("input[name='Q4']:checked").val())=="undefined") {
+		        		alert("第4题尚未作答！");
+		       		return;
+				}
+				if (typeof($("input[name='Q5']:checked").val())=="undefined") {
+		        		alert("第5题尚未作答！");
+		       		return;
+				}
+				if ($('#Q6-1').val().length==0||$('#Q6-2').val().length==0||$('#Q6-3').val().length==0||$('#Q6-4').val().length==0||$('#Q6-5').val().length==0) {
+					alert("第6题有空尚未作答，若该项无金额，请填数字0！");
+		       		return;
+				}
+				if ($('#Q7').val().length==0) {
+		        		alert("第7题尚未作答！");
+		       		return;
+				}
+				if ($('#Q8').val().length==0) {
+		        		alert("第8题尚未作答！");
+		       		return;
+				}
+				if ($('#Q9-1').val().length==0||$('#Q9-2').val().length==0||$('#Q9-3').val().length==0||$('#Q9-4').val().length==0||$('#Q9-5').val().length==0||$('#Q9-6').val().length==0) {
+            		alert("第9题有空尚未作答，若该项无金额，请填数字0！");
+            		return;
+            }	
+			}
+			$('.step3').show();
+			$('.step3').siblings().hide();
+		});
+		$('.step2 .previous').on('click',function  () {	
+			$('.step1').show();
+			$('.step1').siblings().hide();
+		});
+		
+		$('.step3 .next_button').on('click',function  () {	
+			if (typeof($("input[name='Q10']:checked").val())=="undefined") {
+		        		alert("第10题尚未作答！");
+		       		return;
+				}
+			$('.step4').show();
+			$('.step4').siblings().hide();
+		});
+		
+  		$('.step3 .previous').on('click',function  () {	
+			$('.step2').show();
+			$('.step2').siblings().hide();
+		});
+		$('.step4 .next_button').on('click',function  () {
+			if (typeof($("input[name='Q11']:checked").val())=="undefined") {
+		        		alert("第11题尚未作答！");
+		       		return;
+				}
+			if ($("input[name='Q11']:checked").val()!=1&&typeof($("input[name='Q12']:checked").val())=="undefined") {
+		        		alert("第12题尚未作答！");
+		       		return;
+				}
+			if ($('#Q13').val().length==0) {
+		        		alert("第13题尚未作答！");
+		       		return;
+				}
+			if (typeof($("input[name='Q14']:checked").val())=="undefined") {
+		        		alert("第14题尚未作答！");
+		       		return;
+				}
+			if ($("input[name='Q14']:checked").val()!=8&&typeof($("input[name='Q15']:checked").val())=="undefined") {
+		        		alert("第15题尚未作答！");
+		       		return;
+				}
+			$('.step5').show();
+			$('.step5').siblings().hide();
+		});
+		
+  		$('.step4 .previous').on('click',function  () {	
+			$('.step3').show();
+			$('.step3').siblings().hide();
+		});
+		
+		$('.step5 .previous').on('click',function  () {	
+			$('.step4').show();
+			$('.step4').siblings().hide();
+		});
+  
+}); 
+  
+$("#Q1  :radio").on('click',function(){
+	var item = $(this).val();
+	if(item==2){
+		alert("您选择了否，调查结束！");
+		submitinfo();
+	};
+})
+$("#Q11  :radio").on('click',function(){
+	var item = $(this).val();
+	if(item==1){
+		alert("您选择了是，请跳到第13题！");
+		$("input[name='Q12']:checked").prop('checked','');
+	};
+})
+$("#Q12  :radio").on('click',function(){
+	var item = $(this).val();
+	var q11val = $("input[name='Q11']:checked").val();
+	if (typeof(q11val)=="undefined") {
+		alert("您第11题尚未作答！");
+		$("input[name='Q18']:checked").prop('checked','');
+	}
+	if (q11val == 1) {
+		alert("您第11题选择了是，此题不用答！");
+		$("input[name='Q12']:checked").prop('checked','');
+	} else{
+		if(item!=7){
+			alert("您的选择符合不予建档，调查结束！");
+			submitinfo();
+		};
+		
+	}
+})
+$("#Q14  :radio").on('click',function(){
+	var item = $(this).val();
+	if(item==8){
+		alert("您不符合条件，调查结束！");
+		submitinfo();
+	};
+})
+$("#Q15 :radio").on('click',function(){
+	var item = $(this).val();
+	if(item==2){
+		alert("您选择了否，调查结束！");
+		submitinfo();
+	};
+})
+$("#Q17  :radio").on('click',function(){
+	var item = $(this).val();
+	if(item==3){
+		alert("您选择了不清楚，请跳到第19题！");
+		$("input[name='Q18']:checked").prop('checked','');
+	};
+})
+
+$("#Q18  :radio").on('click',function(){
+	var q10val = $("input[name='Q17']:checked").val();
+	if (typeof(q10val)=="undefined") {
+		alert("您第17题尚未作答！");
+		$("input[name='Q18']:checked").prop('checked','');
+	}
+	if (q10val == 3) {
+		alert("您第17题选择了不清楚，此题不用答！");
+		$("input[name='Q18']:checked").prop('checked','');
+	} 
+})
+//请求方法
+function requestfunction(dataStr) {
+	
+	document.getElementById("confirmbtn").disabled=true;
+ 	$.ajax({
+ 	type:"post",
+ 	url:"/question/save",
+	data:{data:dataStr},
+ 	success:function(res){
+           //请求成功时处理
+           $('.answer-wrap').append(res);//通过append的方式动态添加html代码
+           if (res) {
+           		alert("数据上传成功！即将返回问卷列表界面！");
+           		document.getElementById("confirmbtn").disabled=false;
+           		window.location.reload();
+           		window.location.href='list.html';
+           }
+ 		},
+ 	error:function(res){
+           //请求成功时处理
+           alert("数据上传失败，请重试！");
+           document.getElementById("confirmbtn").disabled=false;
+ 		}
+ 	});
+ };
+function submitinfo(){
+	
+	// 处理基本信息
+	var name = $('#name').val();//姓名
+	var phone = $('#phone').val();//电话
+	var company = $('#company').val();//工作单位
+	var city = $('#city').val();//市
+	var town = $('#town').val();//区县等
+	var house = $('#house').val();//街道小区
+	// 处理各问题答案
+	var q1=q2=q3=q4=q5=q6=q7=q8=q9=q10=q11=q12=q13=q14=q15=q16=q17=q18=q19="";
+
+	q1 = $("input[name='Q1']:checked").val();
+	q2 = $("input[name='Q2']:checked").val();
+    q3 = $('#Q3').val();
+    q4 = $("input[name='Q4']:checked").val();
+	q5 = $("input[name='Q5']:checked").val();
+	q6 = $('#Q6-1').val()+"|"+$('#Q6-2').val()+"|"+$('#Q6-3').val()+"|"+$('#Q6-4').val()+"|"+$('#Q6-5').val();
+	q7 = $('#Q7').val();
+	q8 = $('#Q8').val();
+	q9 = $('#Q9-1').val()+"|"+$('#Q9-2').val()+"|"+$('#Q9-3').val()+"|"+$('#Q9-4').val()+"|"+$('#Q9-5').val()+"|"+$('#Q9-6').val();
+	var str10 = $("#Q10").val();
+    $('input[name="Q10"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q10 += $(this).val();
+            if($(this).val()=='8' && str10.length > 0){
+            		q10 += str10;
+            }   
+    });
+    q11 = $("input[name='Q11']:checked").val();
+	q12 = $('#Q12').val()+"|"+$("input[name='Q12']:checked").val();
+	q13 = $('#Q13').val();
+	q14 = $("input[name='Q14']:checked").val();
+	q15 = $("input[name='Q15']:checked").val();
+	q16 = $("input[name='Q16']:checked").val();
+	if (q16=="3" && $('#Q16').val().length>0) {
+		q16 += $('#Q16').val();
+	}
+	q17 = $("input[name='Q17']:checked").val();
+    q18 = $("input[name='Q18']:checked").val();
+    if (q18=="7" && $("#Q18").val().length>0) {
+    		q18 += $("#Q18").val();
+    }
+	q19 = $("input[name='Q19']:checked").val();
+	if (q19 =="3" && $('#Q19').val().length>0) {
+		q19 += $('#Q19').val();
+	}	
+	
+	if (q1!=2&&q12!=7&&q14!=8&&q15!=2) {
+		if (typeof($("input[name='Q16']:checked").val())=="undefined") {
+        		alert("第16题尚未作答！");
+       		return;
+		}
+		if (typeof(q17)=="undefined") {
+			alert("第17题尚未作答！");
+	       	return;
+		}
+		if (q17!=3&&typeof($("input[name='Q18']:checked").val())=="undefined") {
+			alert("第18题尚未作答！");
+	       	return;
+		}
+		if (typeof($("input[name='Q19']:checked").val())=="undefined") {
+			alert("第19题尚未作答！");
+	       	return;
+		}
+	}
+	var dic = {'type':'4','name':name,'phone':phone,'company':company,'city':city,'town':town,'house':house,
+	'Q1':q1,'Q2':q2,'Q3':q3,'Q4':q4,'Q5':q5,'Q6':q6,'Q7':q7,'Q8':q8,'Q9':q9,'Q10':q10,
+	'Q11':q11,'Q12':q12,'Q13':q13,'Q14':q14,'Q15':q15,'Q16':q16,'Q17':q17,'Q18':q18,'Q19':q19};
+	
+	var tempstr = "{";
+	for (var p in dic) {
+		tempstr += ('"'+p+'":"'+dic[p]+'",');
+	}
+	tempstr = tempstr.substr(0,tempstr.length-1);
+	tempstr+='}';
+	var res1 = res2 = res3 = res4 = "";
+	if (q1=="1"&&($('#Q9-1').val()!="0"||typeof($('#Q9-1').val())=="undefined")&&(q12!="7"||typeof(q12)=="undefined")&&q14!="8"&&q15=="1") {
+		res1="错评：是";
+	} else{
+		res1="错评：否"
+	}
+	res2 = document.getElementById("cuotui").checked==true?"错退：是":"错退：否";
+	if (typeof($("input[name='Q10']:checked").val())=="undefined") {
+		res2="";
+	}
+	res3 = q11=="1"?"信息比对：是":"信息比对：否";
+	if (typeof($("input[name='Q11']:checked").val())=="undefined") {
+		res3="";
+	}
+	if ($("input[name='Q16']:checked").val()=="1"||$("input[name='Q16']:checked").val()=="2") {
+		res4 = "帮扶认可：是";
+	} else{
+		res4 = "帮扶认可：否";
+	}
+	if (typeof($("input[name='Q16']:checked").val())=="undefined") {
+		res4="";
+	}
+	var resultStr = "根据答题得出以下调查结果："+"\n"+res1+"\n"+res2+"\n"+res3+"\n"+res4+"\n"+"点击确认提交信息，点击取消返回修改！";
+	if (q1==2) {
+		resultStr="根据答题得出以下调查结果："+"\n"+"错评：是";
+	}
+	
+	var confirmview = confirm(resultStr);
+	if (confirmview == true) {
+			requestfunction(tempstr);
+	} else{
+//			alert("返回修改");
+	}
+}
+
+</script>

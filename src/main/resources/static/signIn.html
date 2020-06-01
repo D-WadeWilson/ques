@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>安徽省总工会调查问卷</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- 引入 Bootstrap -->
+      <link rel="stylesheet" href="css/bootstrap.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+      <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+      <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+	</head>
+	<body style=" background-color:rgba(140,190,240,0.5);" >
+		<div class="" style="width: 100px; height: 100px; border-radius: 50px; background: #ffffff; margin:50px auto; overflow: hidden;">
+			<img src="images/signIn.png" style="width:80%; margin:10px auto;"/>
+		</div>
+		
+		<form class="form-horizontal" role="form" >
+			
+			
+		  <div class="form-group">
+		  	<div class="col-xs-2"></div>
+		    <label for="firstname" class="col-xs-1  control-label" style="text-align:center;"><span class="glyphicon glyphicon-user"></span></label>
+		    <div class="col-xs-7">
+		      <input type="text" class="form-control" id="usrname" placeholder="请输入用户名">
+		    </div>
+		    <div class="col-xs-2"></div>
+		  </div>
+		  <div class="form-group">
+		  	<div class="col-xs-2"></div>
+		    <label for="firstname" class="col-xs-1 control-label" style="text-align: center; "><span class="glyphicon glyphicon-lock"></span></label>
+		    <div class="col-xs-7">
+		      <input type="password" class="form-control" id="psw" placeholder="请输入密码">
+		    </div>
+		    <div class="col-xs-2"></div>
+		  </div>
+		  
+		  
+		  <div class="form-group" style="margin-top:40px;">
+		    <div class=" col-xs-12">
+		      <button type="button" class="btn  btn-primary center-block" onclick="login()">登录</button>
+		    </div>
+		  </div>
+		</form>
+
+
+
+	</body>
+
+</html>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>     
+<script type="text/javascript" src="js/area.js" ></script>
+<script type="text/javascript" src="js/select.js" ></script>	
+
+<!--按钮触控方法-->
+<script>
+	
+	
+	window.history.forward(-1);
+	$('body').on('touchmove','.slidebg',function () {
+    $(document.body).on('touchmove.prevUC', function(e) {
+        e.preventDefault();
+    		});
+	});
+	$('body').on('touchend','.slidebg',function () {
+   		$(document.body).off('touchmove.prevUC');
+	});
+	
+	function login(){
+		var name = document.getElementById('usrname').value;	
+	var psw = document.getElementById('psw').value;
+		if (name == '' || psw == '' || name == null || psw == null || name == undefined || psw == undefined) {
+			alert('请检查用户名或密码是否输入！');
+		} else{
+			if ((name == 'user001' || name == 'user002' || name == 'user003' || name == 'user004' || name == 'user005' || name == 'user006' || name == 'user007' || name == 'user008' || name == 'user009' || name == 'user010' || name == 'user011' || name == 'user012' || name == 'user013' || name == 'user014' || name == 'user015' || name == 'user016' || name == 'user999' || name == 'user000') && psw == 'qwe123456') {
+				window.location.href='list.html';
+			} else{
+				alert('账户名密码错误');
+			}
+		}
+	};
+
+
+</script>
+		

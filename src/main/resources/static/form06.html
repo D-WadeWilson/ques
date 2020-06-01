@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>调查问卷类别：档案管理评估</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 	
+         <!-- 引入 Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/style.css" />
+	</head>
+	
+	
+	<body>
+		<form role='form'>
+			<ul>
+			
+			<!--问卷调查人基本信息-->
+				<li class="step1">
+					<div class="container" >
+					 	<div class="row">
+					 		<div class="tittle">	基本信息</div>
+					 		
+							<div class="form-group clearfix">
+								<label class=" col-xs-3 control-label">县(市、区)名称</label>
+							    <div class="col-xs-9" >
+							       <input type="text" class="form-control" id="lobor" placeholder="请输入县市区名称">
+							    </div>
+						    </div>
+						    
+						    <div class="form-group clearfix">
+								<label class=" col-xs-3 control-label">负责人</label>
+							    <div class="col-xs-9" >
+							       <input type="text" class="form-control" id="manager" placeholder="请输入负责人姓名">
+							    </div>
+						    </div>
+						    
+						    <div class="form-group clearfix">
+								<label class=" col-xs-3 control-label">联系人</label>
+							    <div class="col-xs-9" >
+							       <input type="text" class="form-control" id="linkman" placeholder="请输入联系人姓名">
+							    </div>
+						    </div>
+						    
+						    <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">联系电话</label>
+							    <div class=" col-xs-9" >
+							       <input type="text" class="form-control" id="phone" placeholder="请输入联系人号码">
+							    </div>
+						    </div>
+						    
+						    
+						    <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">地址 </label>
+							    <div class="outer">
+										<select name="province" id="province">
+											<option value="请选择">请选择</option>
+										</select>
+										<select name="city" id="city">
+											<option value="请选择">请选择</option>
+										</select>
+										<select name="town" id="town">
+											<option value="请选择">请选择</option>
+										</select>
+							    </div>						    
+						  </div>
+						  
+						  
+						  <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">详细地址</label>
+							    <div class=" col-xs-9" >
+							       <input type="text" class="form-control" id="house" placeholder="请输入街道、小区等信息">
+							    </div>
+							 </div> 
+					</div>	
+					<button type="button" class="previous btn btn-primary col-xs-5">问卷列表</button>
+					<div class="col-xs-2"></div>
+					<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+				</li>
+				
+			<li class="step2">
+				<div class="container">
+					<div class="tittle">一、基本情况</div>
+					<div class="question">
+							<p>1.工会在档困难职工
+<input type="text" class="form-inline input_after_text" id="Q1-1" placeholder="" style="">   人，其中：返困职工
+<input type="text" class="form-inline input_after_text" id="Q1-2" placeholder="" style="">   人；2017年7月以来脱困户
+<input type="text" class="form-inline input_after_text" id="Q1-3" placeholder="" style="">   人；2017年7月以来注销户
+<input type="text" class="form-inline input_after_text" id="Q1-4" placeholder="" style="">   人；未建档户
+<input type="text" class="form-inline input_after_text" id="Q1-5" placeholder="" style="">   人。
+						    </p>
+					</div>
+				</div>
+				
+				
+				<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+				<div class="col-xs-2"></div>
+			  	<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+			</li>
+		
+			<li class="step3">
+				<div class="tittle">二、档案管理评估</div>
+				
+				<div class="question">
+							<p>1.基层工会是否已制定或具有相应的困难职工档案管理办法？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q2" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q2" id=""  value="2" > 否
+								    </label>
+							</div>
+				</div>
+				
+				
+				
+				
+				<div class="question">
+							<p>2.基层工会是否已按照规定将全国和省级困难职工档案录入帮扶系统？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q3" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q3" id=""  value="2" > 否
+								    </label>
+							</div>
+				</div>
+				
+				
+				
+				<div class="question">
+							<p>3.基层工会是否对困难职工档案建立动态管理机制？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q3" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q3" id=""  value="2" > 否
+								    </label>
+							</div>
+				</div>
+				
+				
+				
+				<div class="question">
+							<p>4.基层工会是否对困难职工档案建立公开公示机制？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q4" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q4" id=""  value="2" > 否
+								    </label>
+							</div>
+				</div>
+				
+				
+				
+				<div class="question">
+							<p>5.基层工会是否对困难职工建档帮扶情况进行公开公示？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q5" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="2" > 否
+								    </label>
+							</div>
+				</div>
+				
+				
+				
+				<div class="question">
+							<p>6.基层工会是否对困难职工建档帮扶情况进行公开公示？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q6" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q6" id=""  value="2" > 否
+								    </label>
+							</div>
+							<p>公开公示的媒介有：</p>
+							<div id="Q6">
+									<label class="checkbox-inline">
+								        <input type="checkbox" id="" value="1" name="Q6-A"> 工会网
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="2" name="Q6-A"> 职工服务网
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="3" name="Q6-A"> 微博
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="4" name="Q6-A"> 微信
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="5" name="Q6-A"> 困难职工宣传专栏
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="6" name="Q6-A"> 其他<input type="text" class="form-inline input_after_text" id="Q6" placeholder="" style="">
+								    </label>
+								</div>
+				</div>
+				
+				
+				
+				
+				<div class="question">
+							<p>7.基层工会是否建立困难职工解脱脱困退出机制？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q7" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q7" id=""  value="2" > 否
+								    </label>
+							</div>
+				</div>
+				
+				
+				
+				<div class="question">
+							<p>8.基层工会对困难职工档案是否归类建档，完整统一，规范有序？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q8" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q8" id=""  value="1" > 否
+								    </label>
+							</div>
+				</div>
+				
+				
+				
+				
+				<div class="question">
+							<p>9.基层工会是否对困难职帮扶工作进行检查或抽查？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q9" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q9" id=""  value="2" > 否
+								    </label>
+							</div>
+				</div>
+				
+				
+				
+				
+				<div class="question">
+							<p>10.基层工会对检查或审计发现的问题是否及时进行整改？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q10" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q10" id=""  value="2" > 否
+								    </label>
+							</div>
+				</div>
+				
+				<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+				<div class="col-xs-2"></div>
+			  	<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+			</li>
+			
+			
+			<li class="step4">
+				<div class="container">
+					<div class="tittle">附件1：困难职工档案查验记录表</div>
+					<div class="question">
+						<p>基层工会：<input type="text" class="form-inline input_after_text" id="" placeholder="" style=""></p>
+					</div>
+					
+					
+					<div class="question">
+						<p>查验内容</p>
+						<p>a.困难职工原始档案:</p>
+								<div id="Q11-A">
+									<label class="checkbox-inline">
+								        <input type="checkbox" id="" value="1" name="Q11-A"> 职工个人身份证复印件
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="2" name="Q11-A"> 家庭户口本
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="3" name="Q11-A"> 个人申请书
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="4" name="Q11-A"> 职工档案表格
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="5" name="Q11-A"> 职工身份证明
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="6" name="Q11-A"> 银行卡复印件
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="7" name="Q11-A"> 家庭经济状况核对承诺授权书
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="8" name="Q11-A"> 收入证明材料
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="9" name="Q11-A"> 申请人承担父母主要赡养责任的由单位工会、社区(村委会)或街道(乡镇)出具赡养证明
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="A" name="Q11-A"> 本人或家庭成员近6个月的收入证明(无固定收入的由社区(村委会)出具证明)
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="B" name="Q11-A"> 困难证明材料(有残疾证、低保证、就业失业登记证的提供复印件)
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="C" name="Q11-A"> 近6个月残疾补助或低保补贴流水
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="D" name="Q11-A"> 家庭信息核对授权书
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="E" name="Q11-A"> 致困原因造成的刚性支持(如县级以上医疗机构诊断或出院小结)
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="F" name="Q11-A"> 自费票据提供的说明材料
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="G" name="Q11-A"> 公示证明材料
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="H" name="Q11-A"> 脱困或注销反馈表
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="I" name="Q11-A"> 其他<input type="text" class="form-inline input_long_long_text" id="Q11-A" placeholder="" style="">
+								    </label>
+								</div>
+								<p>b.财务制度管理档案:</p>
+								<div id="Q11-B">
+									<label class="checkbox-inline">
+								        <input type="checkbox" id="" value="J" name="Q11-B"> 帮扶资金的分配方案
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="K" name="Q11-B"> 银行单据
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="L" name="Q11-B"> 中央财政专项帮扶资金实名制汇总表
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="M" name="Q11-B"> 预决算报表(报告)
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="N"> 其他<input type="text" class="form-inline input_long_long_text" id="Q11-B" placeholder="" style="">
+								    </label>
+								</div>
+								<p>c.日常帮扶工作档案:</p>
+								<div id="Q11-C">
+									<label class="checkbox-inline">
+								        <input type="checkbox" id="" value="O" name="Q11-C"> 帮扶工作会议记录或纪要
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="P" name="Q11-C"> 帮扶工作有关请示
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="Q" name="Q11-C"> 报告上级机关的批复回复函
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="R" name="Q11-C"> 帮扶工作有关报表
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="S" name="Q11-C"> 数据统计资料
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="T" name="Q11-C"> 其他<input type="text" class="form-inline input_long_long_text" id="Q11-C" placeholder="" style="">
+								    </label>
+								</div>
+					</div>
+					
+					<div class="question">
+						<p>查验评价</p>
+						<div id="Q11-D">
+									<label class="checkbox-inline">
+								        <input type="checkbox" id="" value="U" name="Q11-D"> 完整性
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="V" name="Q11-D"> 条理性
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="W" name="Q11-D"> 规范性
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="X" name="Q11-D"> 及时性(档案抽检比例原则上不低于10%)
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="Y" name="Q11-D"> 帮扶资金的监督机制
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="Z" name="Q11-D"> 符合当地实际特色
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="a" name="Q11-D"> 其他<input type="text" class="form-inline input_long_long_text" id="Q11-D" placeholder="" style="">
+								    </label>
+								</div>
+					</div>
+					
+					
+					
+					<div class="question">
+						<p>存在问题：</p>
+						<input type="text" class="form-inline input_long_long_text" id="Q11-E" placeholder="" style="">
+					</div>
+					
+					
+					
+					<div class="question">
+						<p>查验建议：</p>
+						<input type="text" class="form-inline input_long_long_text" id="Q11-F" placeholder="" style="">
+					</div>
+					
+					
+					<div class="question">
+						<p>查验结论：</p>
+						<input type="text" class="form-inline input_long_long_text" id="Q11-G" placeholder="" style="">
+					</div>
+					
+				</div>
+				
+				<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+				<div class="col-xs-2"></div>
+			  	<button type="button" class="col-xs-5 btn  btn-primary" onclick="submitinfo()" id="confirmbtn">提交</button>
+			</li>
+		
+		
+			</ul>
+		</form>
+		
+		
+	</body>
+</html>
+
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script type="text/javascript" src="js/area.js" ></script>
+<script type="text/javascript" src="js/select.js" ></script>	
+	
+<script>
+	window.history.forward(-1);
+	$(document).ready(function(){
+	
+		$(".step1").siblings().hide();
+		
+		$('.step1 .next_button').on('click',function  () {	
+			var manager = $('#manager').val();//负责人
+			var linkman = $('#linkman').val();//联系人
+			var lobor = $('#lobor').val();//工会名
+			var phone = $('#phone').val();//电话
+			var city = $('#city').val();//市
+			var town = $('#town').val();//区县等
+			var house = $('#house').val();//街道小区
+			
+			if (manager==""||linkman==""||lobor==""||phone==""||house==""||city=="请选择"||town=="请选择") {
+				alert("基本信息未填写完整！");
+				return;
+			} else {
+				$('.step2').show();
+				$('.step2').siblings().hide();
+			}
+		});
+		$('.step1 .previous').on('click',function  () {	
+			window.location.href='list.html';
+		});
+		
+		$('.step2 .next_button').on('click',function  () {	
+			$('.step3').show();
+			$('.step3').siblings().hide();
+		});
+		$('.step2 .previous').on('click',function  () {	
+			$('.step1').show();
+			$('.step1').siblings().hide();
+		});
+		
+		$('.step3 .next_button').on('click',function  () {	
+			$('.step4').show();
+			$('.step4').siblings().hide();
+		});
+		
+  		$('.step3 .previous').on('click',function  () {	
+			$('.step2').show();
+			$('.step2').siblings().hide();
+		});
+		$('.step4 .next_button').on('click',function  () {	
+			$('.step5').show();
+			$('.step5').siblings().hide();
+		});
+		
+		
+		$('.step4 .previous').on('click',function  () {	
+			$('.step3').show();
+			$('.step3').siblings().hide();
+		});
+  
+});
+function submitinfo(){
+	
+	// 处理基本信息
+	var manager = $('#manager').val();//负责人
+	var linkman = $('#linkman').val();//联系人
+	var lobor = $('#lobor').val();//工会名
+	var phone = $('#phone').val();//电话
+	var city = $('#city').val();//市
+	var town = $('#town').val();//区县等
+	var house = $('#house').val();//街道小区
+	// 处理各问题答案
+	var q1=q2=q3=q4=q5=q6=q7=q8=q9=q10=q11=q12=q13=q14=q15="";
+
+	q1 = $('#Q1-1').val()+"|"+$('#Q1-2').val()+"|"+$('#Q1-3').val()+"|"+$('#Q1-4').val()+"|"+$('#Q1-5').val();
+	q2 = $("input[name='Q2']:checked").val();
+    q3 = $("input[name='Q3']:checked").val();
+    q4 = $("input[name='Q4']:checked").val();
+	q5 = $("input[name='Q5']:checked").val();
+	q6 = $("input[name='Q6']:checked").val();
+	var str10 = $("#Q6").val();
+    $('input[name="Q6-A"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q6 += $(this).val();
+            if($(this).val()=='6' && str10.length > 0){
+            		q6 += str10;
+            }   
+    });
+	q7 = $("input[name='Q7']:checked").val();
+	q8 = $("input[name='Q8']:checked").val();
+	q9 = $("input[name='Q9']:checked").val();
+	q10 = $("input[name='Q10']:checked").val();
+
+	var str11A = $("#Q11-A").val();
+	var tempA = "a";
+    $('input[name="Q11-A"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            tempA += $(this).val();
+            if($(this).val()=='I' && str11A.length > 0){
+            		tempA += str11A;
+            }   
+    });
+    var str11B = $("#Q11-B").val();
+    var tempB = "b";
+    $('input[name="Q11-B"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            tempB += $(this).val();
+            if($(this).val()=='N' && str11B.length > 0){
+            		tempB += str11B;
+            }   
+    });
+    var str11C = $("#Q11-C").val();
+    var tempC = "c";
+    $('input[name="Q11-C"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            tempC += $(this).val();
+            if($(this).val()=='T' && str11C.length > 0){
+            		tempC += str11C;
+            }   
+    });
+    q11 = tempA +"|"+ tempB +"|"+ tempC;
+    
+    var str11D = $("#Q11-D").val();
+    $('input[name="Q11-D"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q12 += $(this).val();
+            if($(this).val()=='a' && str11D.length > 0){
+            		q12 += str11D;
+            }   
+    });
+	q13 = $('#Q11-E').val();
+	q14 = $('#Q11-F').val();
+	q15 = $('#Q11-G').val();
+	
+	var dic = {'type':'6','lobor':lobor,'manager':manager,'phone':phone,'linkman':linkman,'city':city,'town':town,'house':house,
+	'Q1':q1,'Q2':q2,'Q3':q3,'Q4':q4,'Q5':q5,'Q6':q6,'Q7':q7,'Q8':q8,'Q9':q9,'Q10':q10,
+	'Q11':q11,'Q12':q12,'Q13':q13,'Q14':q14,'Q15':q15};
+	
+	var tempstr = "{";
+	for (var p in dic) {
+		tempstr += ('"'+p+'":"'+dic[p]+'",');
+	}
+	tempstr = tempstr.substr(0,tempstr.length-1);
+	tempstr+='}';
+	var confirmview = confirm("点击确认提交信息，点击取消返回修改！");
+		if (confirmview == true) {
+			requestfunction(tempstr);
+		} else{
+//			alert("返回修改");
+		}
+}
+//请求方法
+function requestfunction(dataStr) {
+	
+	document.getElementById("confirmbtn").disabled=true;
+ 	$.ajax({
+ 	type:"post",
+ 	url:"/question/save",
+	data:{data:dataStr},
+ 	success:function(res){
+           //请求成功时处理
+           $('.answer-wrap').append(res);//通过append的方式动态添加html代码
+           if (res) {
+           		alert("数据上传成功！即将返回问卷列表界面！");
+           		document.getElementById("confirmbtn").disabled=false;
+           		window.location.reload();
+           		window.location.href='list.html';
+           }
+ 		},
+ 	error:function(res){
+           //请求成功时处理
+           alert("数据上传失败，请重试！");
+           document.getElementById("confirmbtn").disabled=false;
+ 		}
+ 	});
+ };
+</script>	

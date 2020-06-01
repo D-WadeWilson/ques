@@ -1,0 +1,33 @@
+*{font-size:16px;color:#666666;border:0;margin:0;padding:0;font-family:"微软雅黑";}
+ul{display:block;margin:0;padding:0;list-style:none;}
+li{display:block;margin:0;padding:0;list-style: none;}
+img{border:0;display:block;}
+dl,dt,dd{margin:0;padding:0;display:block;}
+a{text-decoration:none;}
+a:hover{color:#c7913f}
+.clearfix{clear: both;}
+.step1,.step2,.step3{width: 95%; margin:10px auto;}
+.input_list li{
+	line-height: 30px;
+	margin:20px auto;
+}
+.tittle{
+	color:#337ab7;
+	margin: 20px 0;
+	}
+
+label {font-weight: normal;}
+.question{margin: 15px auto;}
+.question>p{
+	background-color:#c0e2ff ;
+	padding: 5px;
+}
+.input_after_text{
+	border-bottom: 1px solid #999999;
+	width: 100px;
+}
+
+.input_long_long_text{
+	border-bottom: 1px solid #999999;
+	width: 1000px;
+}

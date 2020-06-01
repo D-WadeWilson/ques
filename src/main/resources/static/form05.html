@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>调查问卷类别：帮扶过程(基层工会)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 	
+      <!-- 引入 Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/style.css" />
+	</head>
+	
+	
+	<body>
+		<form role='form'>
+			<ul>
+				
+				<!--问卷调查人基本信息-->
+				<li class="step1">
+					<div class="container" >
+					 	<div class="row">
+					 		<div class="tittle">	基本信息</div>
+					 		
+							<div class="form-group clearfix">
+								<label class=" col-xs-3 control-label">基层工会(帮扶中心)名称</label>
+							    <div class="col-xs-9" >
+							       <input type="text" class="form-control" id="lobor" placeholder="请输入工会名称">
+							    </div>
+						    </div>
+						    
+						    <div class="form-group clearfix">
+								<label class=" col-xs-3 control-label">负责人</label>
+							    <div class="col-xs-9" >
+							       <input type="text" class="form-control" id="manager" placeholder="请输入负责人姓名">
+							    </div>
+						    </div>
+						    
+						    <div class="form-group clearfix">
+								<label class=" col-xs-3 control-label">联系人</label>
+							    <div class="col-xs-9" >
+							       <input type="text" class="form-control" id="linkman" placeholder="请输入联系人姓名">
+							    </div>
+						    </div>
+						    
+						    <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">联系电话</label>
+							    <div class=" col-xs-9" >
+							       <input type="text" class="form-control" id="phone" placeholder="请输入联系人号码">
+							    </div>
+						    </div>
+						    
+						    
+						    <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">地址 </label>
+							    <div class="outer">
+										<select name="province" id="province">
+											<option value="请选择">请选择</option>
+										</select>
+										<select name="city" id="city">
+											<option value="请选择">请选择</option>
+										</select>
+										<select name="town" id="town">
+											<option value="请选择">请选择</option>
+										</select>
+							    </div>						    
+						  </div>
+						  
+						  
+						  <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">详细地址</label>
+							    <div class=" col-xs-9" >
+							       <input type="text" class="form-control" id="house" placeholder="请输入街道、小区等信息">
+							    </div>
+						  </div> 
+					</div>	
+					<button type="button" class="previous btn btn-primary col-xs-5">问卷列表</button>
+					<div class="col-xs-2"></div>
+					<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+				</li>
+				
+				<li class="step2">
+					<div class="container">
+						<div class="tittle">一、基本情况</div>
+						
+						<div class="question">
+							<p>1.工会在档困难职工
+<input type="text" class="form-inline input_after_text" id="Q1-1" placeholder="" style="">   人，其中：返困职工
+<input type="text" class="form-inline input_after_text" id="Q1-2" placeholder="" style="">   人；2017年7月以来脱困户<input type="text" class="form-inline input_after_text" id="Q1-3" placeholder="" style="">   人；2017年7月以来注销户
+<input type="text" class="form-inline input_after_text" id="Q1-4" placeholder="" style="">   人；未建档户
+<input type="text" class="form-inline input_after_text" id="Q1-5" placeholder="" style="">   人。
+						    </p>
+						</div>
+						
+						
+						<div class="question">
+							<p>2.贵工会(帮扶中心)具体采取的帮扶救助政策宣传方式和渠道？(多选)</p>
+							<div id="Q2">
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="1" name="Q2"> 工会组织宣传活动
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="2" name="Q2"> 网络
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="3" name="Q2"> 电视报纸等媒体
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="4" name="Q2"> 街道、社区宣传栏
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="5" name="Q2"> 现场发放传单
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="6" name="Q2"> 其他<input type="text" class="form-inline input_after_text" id="Q2" placeholder="" style="">
+								    </label>
+							</div>
+							
+						</div>
+						
+						
+						<div class="question">
+							<p>3.贵工会(帮扶中心)具体采取的帮扶方式有哪些？(多选)</p>
+							<p>a.生活帮扶类:</p>
+								<div id="Q3-A">
+									<label class="checkbox-inline">
+								        <input type="checkbox" id="" value="1" name="Q3-A"> 提供生活用品
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="2" name="Q3-A"> 现金帮助
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="3" name="Q3-A"> 解决生活难题
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="4" name="Q3-A"> 寻找致富出路
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="5" name="Q3-A"> 其他<input type="text" class="form-inline input_after_text" id="Q3-A" placeholder="" style="">
+								    </label>
+								</div>
+								<p>b.医疗帮扶类:</p>
+								<div id="Q3-B">
+									<label class="checkbox-inline">
+								        <input type="checkbox" id="" value="6" name="Q3-B"> 提供医疗救助金
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="7" name="Q3-B"> 免费体检
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="8" name="Q3-B"> 定期巡诊
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="9" name="Q3-B"> 免费远程问诊
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="A" name="Q3-B"> 其他<input type="text" class="form-inline input_after_text" id="Q3-B" placeholder="" style="">
+								    </label>
+								</div>
+								<p>c.就业帮扶类:</p>
+								<div id="Q3-C">
+									<label class="checkbox-inline">
+								        <input type="checkbox" id="" value="B" name="Q3-C"> 实施企业社保补贴
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="C" name="Q3-C"> 灵活就业(创业)补贴
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="D" name="Q3-C"> 职业技能培训
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="E" name="Q3-C"> 安置公益性岗位
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="F" name="Q3-C"> 提供就业服务
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="G" name="Q3-C"> 其他<input type="text" class="form-inline input_after_text" id="Q3-C" placeholder="" style="">
+								    </label>
+								</div>
+								<p>d.子女助学帮扶类:</p>
+								<div id="Q3-D">
+									<label class="checkbox-inline">
+								        <input type="checkbox" id="" value="H" name="Q3-D"> 助学金
+								    </label>
+								   <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="I" name="Q3-C"> 学习用品
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="J" name="Q3-C"> 义务辅导
+								    </label>
+								    <label class="checkbox-inline">
+								        <input type="checkbox" id="" value="K" name="Q3-C"> 其他<input type="text" class="form-inline input_after_text" id="Q3-D" placeholder="" style="">
+								    </label>
+								</div>
+								<p>e.其他类：</p>
+<input type="text" class="form-inline input_after_text" id="Q3-E" placeholder="" style="">
+							</div>
+							
+							
+							
+							<div class="question">
+								<p>4.贵工会(帮扶中心)具体帮扶效益如何？(解决多少困难职工，带动多少就业，创造多少利税等)</p>
+<p>a.生活帮扶类：</p>
+<input type="text" class="form-inline input_long_long_text" id="Q4-A" placeholder="" style="">；
+<p>b.医疗帮扶类：</p>
+<input type="text" class="form-inline input_long_long_text" id="Q4-B" placeholder="" style="">；
+<p>c.就业帮扶类：</p>
+<input type="text" class="form-inline input_long_long_text" id="Q4-C" placeholder="" style="">；
+<p>d.子女助学帮扶类：</p>
+<input type="text" class="form-inline input_long_long_text" id="Q4-D" placeholder="" style="">；
+<p>e.其他类：</p>
+<input type="text" class="form-inline input_long_long_text" id="Q4-E" placeholder="" style="">。
+
+							</div>
+							
+						</div>
+					</div>
+					
+					<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+					<div class="col-xs-2"></div>
+			  		<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+				</li>
+				
+				<li class="step3">
+					<div class="container">
+						<div class="tittle">二、帮扶过程</div>
+						<div class="question">
+							<p>5.贵工会(帮扶中心)是否建立困难职工犯困再帮扶机制？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q5" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q5" id=""  value="2" > 否
+								    </label>
+								</div>
+						</div>
+						
+						
+						<div class="question">
+							<p>6.贵工会(帮扶中心)是否将帮扶工作纳入党政脱贫总体统筹或民生工程？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q6" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q6" id=""  value="2" > 否
+								    </label>
+								</div>
+						</div>
+						
+						
+						<div class="question">
+							<p>7.贵工会(帮扶中心)是否建立脱困工作规划？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q7" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q7" id=""  value="2" > 否
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>8.贵工会(帮扶中心)是否对整体解困脱贫工作建立了完善的工作机制？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q8" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q8" id=""  value="2" > 否
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>9.贵工会(帮扶中心)从建档到脱困的流程是否规范？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q9" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q9" id=""  value="2" > 否，原因<input type="text" class="form-inline input_long_long_text" id="Q9" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>10.贵工会(帮扶中心)困难职工的公示制度及程序是否规范？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q10" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q10" id=""  value="2" > 否，原因<input type="text" class="form-inline input_long_long_text" id="" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>11.贵工会(帮扶中心)是否安排部署人员开展困难职工解困脱困工作？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q11" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q11" id=""  value="2" > 否，原因<input type="text" class="form-inline input_long_long_text" id="" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>12.贵工会(帮扶中心)是否按照上级工会的工作规划制定了实施方案？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q12" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q12" id=""  value="2" > 否，原因<input type="text" class="form-inline input_long_long_text" id="" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>13.贵工会(帮扶中心)是否安排工会经费投入来为解困脱困提供资金保障？(查阅经费划账记录)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q13" id="" value="1" > 是，上年度投入总经费<input type="text" class="form-inline input_after_text" id="Q13-1" placeholder="" style="">元
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q13" id=""  value="2" > 否，原因<input type="text" class="form-inline input_long_long_text" id="Q13-2" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>14.贵工会(帮扶中心)是否建立帮扶资金管理制度？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q14" id="" value="1" > 是，查阅发放记录发现能及时到位
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio"  name="Q14" id="" value="2" > 是，查但阅发放记录发现未能及时到位
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q14" id=""  value="3" > 否，原因<input type="text" class="form-inline input_long_long_text" id="Q14" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>15.贵工会(帮扶中心)是否建立帮扶资金使用规定？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q15" id="" value="1" > 是，有使用原则、使用范围、核算方式、发放方式相关规定，使用效益情况：<input type="text" class="form-inline input_long_long_text" id="Q15-1" placeholder="" style="">
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q15" id=""  value="2" > 否，原因<input type="text" class="form-inline input_long_long_text" id="Q15" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>16.贵工会(帮扶中心)是否建立帮扶资金监督机制？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q16" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q16" id=""  value="2" > 否，原因<input type="text" class="form-inline input_long_long_text" id="Q16" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						<div class="question">
+							<p>17.贵工会(帮扶中心)困难职工帮扶档案内容填写是否具备完整性、条理性、规范性、更新及时性？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q17" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q17" id=""  value="2" > 否，原因<input type="text" class="form-inline input_long_long_text" id="Q17" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>18.贵工会(帮扶中心)是否对困难职工帮扶档案做到动态管理？(查阅抽检和调整记录)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q18" id="" value="1" > 是，定期抽检且档案抽检比例不低于10%，根据情况进行动态调整
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q18" id=""  value="2" > 否，原因<input type="text" class="form-inline input_long_long_text" id="Q18" placeholder="" style="">
+								    </label>
+								</div>
+						</div>
+						
+						
+						<div class="question">
+							<p>19.贵工会(帮扶中心)是否在帮扶过程中结合当地实际情况及特色，在工作过程及帮扶措施等方面开展帮扶工作创新？</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q19" id="" value="1" > 是，创新特色做法有：<input type="text" class="form-inline input_long_long_text" id="Q19" placeholder="" style="">(附创新特色做法总结报告)
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q19" id=""  value="2" > 否
+								    </label>
+								</div>
+						</div>
+						
+						
+						
+						
+					</div>
+					
+					
+					<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+				    <div class="col-xs-2"></div>
+			  	    <button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+				</li>
+				
+				<li class="step4">
+					<div class="container">
+						<div class="tittle">三、协同机制</div>
+						<div class="question">
+							<p>20.贵工会(帮扶中心)所在当地党政是否出台专项政策或纳入民生工程？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q20" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q20" id=""  value="2" > 否
+								    </label>
+							</div>
+						</div>
+						
+						
+						
+						<div class="question">
+							<p>21.贵工会(帮扶中心)是否建立各部门协统机制(信息对比机制)？(查阅文件)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q21" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q21" id=""  value="2" > 否
+								    </label>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="question">
+							<p>22.贵工会(帮扶中心)主要负责同志是否靠前指挥、亲自研究？(查阅会议记录)</p>
+							<div>
+									<label class="radio-inline">
+								        <input type="radio"  name="Q22" id="" value="1" > 是
+								    </label>
+								    <label class="radio-inline">
+								        <input type="radio" name="Q22" id=""  value="2" > 否
+								    </label>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="question">
+							<p>23.您觉得在社会救助方面制度、政策、方法还有哪些方面可以加以完善？您的建议：<input type="text" class="form-inline input_long_long_text" id="Q23" placeholder="" style="" width="500px"></p>
+							
+						</div>
+						
+						
+					</div>
+					
+					<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+					<div class="col-xs-2"></div>
+			  		<button type="button" class="col-xs-5 btn  btn-primary" onclick="submitinfo()" id="confirmbtn">提交</button>
+				</li>
+				
+				
+			</ul>
+		</form>
+	</body>
+</html>
+
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script type="text/javascript" src="js/area.js" ></script>
+<script type="text/javascript" src="js/select.js" ></script>	
+	
+<script>
+	window.history.forward(-1);
+	$(document).ready(function(){
+	
+		$(".step1").siblings().hide();
+		
+		$('.step1 .next_button').on('click',function  () {	
+			var manager = $('#manager').val();//负责人
+			var linkman = $('#linkman').val();//联系人
+			var lobor = $('#lobor').val();//工会名
+			var phone = $('#phone').val();//电话
+			var city = $('#city').val();//市
+			var town = $('#town').val();//区县等
+			var house = $('#house').val();//街道小区
+			if (manager==""||linkman==""||lobor==""||phone==""||house==""||city=="请选择"||town=="请选择") {
+				alert("基本信息未填写完整！");
+				return;
+			} else {
+				$('.step2').show();
+				$('.step2').siblings().hide();
+			}
+		});
+		$('.step1 .previous').on('click',function  () {	
+			window.location.href='list.html';
+		});
+		
+		$('.step2 .next_button').on('click',function  () {	
+			$('.step3').show();
+			$('.step3').siblings().hide();
+		});
+		$('.step2 .previous').on('click',function  () {	
+			$('.step1').show();
+			$('.step1').siblings().hide();
+		});
+		
+		$('.step3 .next_button').on('click',function  () {	
+			$('.step4').show();
+			$('.step4').siblings().hide();
+		});
+		
+  		$('.step3 .previous').on('click',function  () {	
+			$('.step2').show();
+			$('.step2').siblings().hide();
+		});
+		$('.step4 .next_button').on('click',function  () {	
+			$('.step5').show();
+			$('.step5').siblings().hide();
+		});
+		
+  		$('.step4 .previous').on('click',function  () {	
+			$('.step3').show();
+			$('.step3').siblings().hide();
+		});
+		
+		$('.step5 .previous').on('click',function  () {	
+			$('.step4').show();
+			$('.step4').siblings().hide();
+		});
+  
+}); 
+function submitinfo(){
+	
+	// 处理基本信息
+	var manager = $('#manager').val();//负责人
+	var linkman = $('#linkman').val();//联系人
+	var lobor = $('#lobor').val();//工会名
+	var phone = $('#phone').val();//电话
+	var city = $('#city').val();//市
+	var town = $('#town').val();//区县等
+	var house = $('#house').val();//街道小区
+	// 处理各问题答案
+	var q1=q2=q3=q4=q5=q6=q7=q8=q9=q10=q11=q12=q13=q14=q15=q16=q17=q18=q19=q20=q21=q22=q23="";
+
+	q1 = $('#Q1-1').val()+"|"+$('#Q1-2').val()+"|"+$('#Q1-3').val()+"|"+$('#Q1-4').val()+"|"+$('#Q1-5').val();
+	var str2 = $("#Q2").val();
+    $('input[name="Q2"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q2 += $(this).val();
+            if($(this).val()=='6' && str2.length > 0){
+            		q2 += str2;
+            }   
+    });
+	var str18 = $("#Q3-A").val();
+    q3 = "a";
+    $('input[name="Q3-A"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q3 += $(this).val();
+            if($(this).val()=='5' && str18.length > 0){
+            		q3 += str18;
+            }   
+    });
+    q3 += "|b";
+    var str18b = $("#Q3-B").val();
+    $('input[name="Q3-B"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q3 += $(this).val();
+            if($(this).val()=='A' && str18b.length > 0){
+            		q3 += str18b;
+            }   
+    });
+    q3 += "|c";
+    var str18c = $("#Q3-C").val();
+    $('input[name="Q3-C"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q3 += $(this).val();
+            if($(this).val()=='G' && str18c.length > 0){
+            		q3 += str18c;
+            }   
+    });
+    q3 += "|d";
+    var str18d = $("#Q3-D").val();
+    $('input[name="Q3-D"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q3 += $(this).val();
+            if($(this).val()=='K' && str18d.length > 0){
+            		q3 += str18d;
+            }   
+    });
+    q3 += "|e"+$('#Q3-E').val();
+    
+    q4 = "a"+$("#Q4-A").val() + "|b" + $("#Q4-B").val() +"|c"+ $("#Q4-C").val() +"|d"+ $("#Q4-D").val() +"|e" + $("#Q4-E").val();
+	q5 = $("input[name='Q5']:checked").val();
+	q6 = $("input[name='Q6']:checked").val();
+	q7 = $("input[name='Q7']:checked").val();
+	q8 = $("input[name='Q8']:checked").val();
+	q9 = $("input[name='Q9']:checked").val();
+	if (q9 == "3" && $('#Q9').val().length>0) {
+		q9 += $('#Q9').val();
+	}
+	q10 = $("input[name='Q10']:checked").val();
+	if (q10 == "3" && $('#Q10').val().length>0) {
+		q10 += $('#Q10').val();
+	}
+	q11 = $("input[name='Q11']:checked").val();
+	if (q11 == "3" && $('#Q11').val().length>0) {
+		q11 += $('#Q11').val();
+	}
+    q12 = $("input[name='Q12']:checked").val();
+	if (q12 == "3" && $('#Q12').val().length>0) {
+		q12 += $('#Q9').val();
+	}
+	q13 = $("input[name='Q13']:checked").val();
+	if (q13 == "2" && $('#Q13-2').val().length>0) {
+		q13 = q13 + "|" +$('#Q13-2').val();
+	} else {
+		q13 = q13 + "|" + $('#Q13-1').val();
+	}
+	q14 = $("input[name='Q14']:checked").val();
+	if (q14 == "2" && $('#Q14').val().length>0) {
+		q14 += $('#Q14').val();
+	} 
+	q15 = $("input[name='Q15']:checked").val();
+	if (q15 == "1" && $('#Q15-1').val().length>0) {
+		q15 = q15 + "|" +$('#Q15-1').val();
+	} else {
+		q15 = q15 + "|" + $('#Q15-2').val();
+	}
+	q16 = $("input[name='Q16']:checked").val();
+	if (q16 == "2" && $('#Q16').val().length>0) {
+		q16 += $('#Q16').val();
+	} 
+	q17 = $("input[name='Q17']:checked").val();
+	if (q17 == "2" && $('#Q17').val().length>0) {
+		q17 += $('#Q17').val();
+	} 
+	q17 = $("input[name='Q17']:checked").val();
+    q18 = $("input[name='Q18']:checked").val();
+    if (q18=="2" && $("#Q18").val().length>0) {
+    		q18 += $("#Q18").val();
+    }
+	q19 = $("input[name='Q19']:checked").val();
+	if (q19 =="1" && $('#Q19').val().length>0) {
+		q19 += $('#Q19').val();
+	}	
+	q20 = $("input[name='Q20']:checked").val();
+	q21 = $("input[name='Q21']:checked").val();
+	q22 = $("input[name='Q22']:checked").val();
+	q23 = $("#Q23").val();
+	
+	var dic = {'type':'5','lobor':lobor,'manager':manager,'phone':phone,'linkman':linkman,'city':city,'town':town,'house':house,
+	'Q1':q1,'Q2':q2,'Q3':q3,'Q4':q4,'Q5':q5,'Q6':q6,'Q7':q7,'Q8':q8,'Q9':q9,'Q10':q10,
+	'Q11':q11,'Q12':q12,'Q13':q13,'Q14':q14,'Q15':q15,'Q16':q16,'Q17':q17,'Q18':q18,'Q19':q19,
+	'Q20':q20,'Q21':q21,'Q22':q22,'Q23':q23};
+	
+	var tempstr = "{";
+	for (var p in dic) {
+		tempstr += ('"'+p+'":"'+dic[p]+'",');
+	}
+	tempstr = tempstr.substr(0,tempstr.length-1);
+	tempstr+='}';
+	var confirmview = confirm("点击确认提交信息，点击取消返回修改！");
+		if (confirmview == true) {
+			requestfunction(tempstr);
+		} else{
+//			alert("返回修改");
+		}
+}
+//请求方法
+function requestfunction(dataStr) {
+	
+	document.getElementById("confirmbtn").disabled=true;
+ 	$.ajax({
+ 	type:"post",
+ 	url:"/question/save",
+	data:{data:dataStr},
+ 	success:function(res){
+           //请求成功时处理
+           $('.answer-wrap').append(res);//通过append的方式动态添加html代码
+           if (res) {
+           		alert("数据上传成功！即将返回问卷列表界面！");
+           		document.getElementById("confirmbtn").disabled=false;
+           		window.location.reload();
+           		window.location.href='list.html';
+           }
+ 		},
+ 	error:function(res){
+           //请求成功时处理
+           alert("数据上传失败，请重试！");
+           document.getElementById("confirmbtn").disabled=false;
+ 		}
+ 	});
+ };
+</script>	
