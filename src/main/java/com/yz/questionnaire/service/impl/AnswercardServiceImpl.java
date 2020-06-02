@@ -12,7 +12,7 @@ import java.util.List;
  * (Answercard)表服务实现类
  *
  * @author makejava
- * @since 2020-05-26 11:59:03
+ * @since 2020-06-01 17:35:41
  */
 @Service("answercardService")
 public class AnswercardServiceImpl implements AnswercardService {
@@ -40,6 +40,11 @@ public class AnswercardServiceImpl implements AnswercardService {
     @Override
     public List<Answercard> queryAllByLimit(int offset, int limit) {
         return this.answercardDao.queryAllByLimit(offset, limit);
+    }
+
+    @Override
+    public List<Answercard> queryAll(Answercard answercard) {
+        return this.answercardDao.queryAll(answercard);
     }
 
     /**

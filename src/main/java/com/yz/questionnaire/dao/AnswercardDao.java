@@ -9,7 +9,7 @@ import java.util.List;
  * (Answercard)表数据库访问层
  *
  * @author makejava
- * @since 2020-05-26 11:58:47
+ * @since 2020-06-01 17:35:38
  */
 @Mapper
 public interface AnswercardDao {

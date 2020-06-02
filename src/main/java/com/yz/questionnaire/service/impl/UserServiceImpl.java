@@ -12,7 +12,7 @@ import java.util.List;
  * (User)表服务实现类
  *
  * @author makejava
- * @since 2020-05-27 12:09:21
+ * @since 2020-06-01 17:36:07
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -40,6 +40,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> queryAllByLimit(int offset, int limit) {
         return this.userDao.queryAllByLimit(offset, limit);
+    }
+
+    @Override
+    public List<User> queryAll(User user) {
+        return this.userDao.queryAll(user);
     }
 
     /**

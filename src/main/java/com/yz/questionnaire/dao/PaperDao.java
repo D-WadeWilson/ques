@@ -9,7 +9,7 @@ import java.util.List;
  * (Paper)表数据库访问层
  *
  * @author makejava
- * @since 2020-05-26 16:45:58
+ * @since 2020-06-01 17:35:49
  */
 @Mapper
 public interface PaperDao {

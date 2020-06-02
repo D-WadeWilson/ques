@@ -9,7 +9,7 @@ import java.util.List;
  * (User)表数据库访问层
  *
  * @author makejava
- * @since 2020-05-27 12:09:21
+ * @since 2020-06-01 17:36:06
  */
 @Mapper
 public interface UserDao {
@@ -23,6 +23,14 @@ public interface UserDao {
     User queryById(Integer id);
 
     /**
+     * 通过实体作为筛选条件查询
+     *
+     * @param user 实例对象
+     * @return 对象列表
+     */
+    List<User> queryAll(User user);
+
+    /**
      * 查询指定行数据
      *
      * @param offset 查询起始位置
@@ -32,13 +40,6 @@ public interface UserDao {
     List<User> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
 
-    /**
-     * 通过实体作为筛选条件查询
-     *
-     * @param user 实例对象
-     * @return 对象列表
-     */
-    List<User> queryAll(User user);
 
     /**
      * 新增数据

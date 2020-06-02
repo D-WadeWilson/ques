@@ -1,15 +1,16 @@
 package com.yz.questionnaire.entity;
 
+import java.util.Date;
 import java.io.Serializable;
 
 /**
  * (Question)实体类
  *
  * @author makejava
- * @since 2020-05-26 16:46:31
+ * @since 2020-06-01 17:35:58
  */
 public class Question implements Serializable {
-    private static final long serialVersionUID = -22316850185748660L;
+    private static final long serialVersionUID = 657207565087677832L;
     /**
     * 主键
     */
@@ -22,6 +23,10 @@ public class Question implements Serializable {
     * 对应试卷编号
     */
     private Integer paperno;
+    /**
+    * 添加时间
+    */
+    private Date addtime;
 
 
     public Integer getId() {
@@ -46,6 +51,14 @@ public class Question implements Serializable {
 
     public void setPaperno(Integer paperno) {
         this.paperno = paperno;
+    }
+
+    public Date getAddtime() {
+        return addtime;
+    }
+
+    public void setAddtime(Date addtime) {
+        this.addtime = addtime;
     }
 
 }

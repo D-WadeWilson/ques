@@ -9,7 +9,7 @@ import java.util.List;
  * (Question)表数据库访问层
  *
  * @author makejava
- * @since 2020-05-26 16:46:31
+ * @since 2020-06-01 17:35:58
  */
 @Mapper
 public interface QuestionDao {
@@ -39,9 +39,6 @@ public interface QuestionDao {
      * @return 对象列表
      */
     List<Question> queryAll(Question question);
-
-
-
 
     /**
      * 新增数据

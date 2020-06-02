@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class QuestionnaireController {
      *
      *
      * @param
-     * @return 单条数据
+     * @return 储存数据
      */
     @PostMapping("save")
     @SneakyThrows
@@ -66,19 +67,35 @@ public class QuestionnaireController {
     public void saveAnswerCard(Map<String, String> map, User user) {
         Question question = new Question();
         question.setPaperno(map.get("type")!=null?Integer.valueOf(map.get("type")):null);
-        List<Question> questionList = questionService.queryAll(question);
+        List<Question> questionList = questionService.queryAll(question);   //跟据试卷号获取答案表
 
         Paper paper =  new Paper();
         paper.setNumber(map.get("type")!=null?Integer.valueOf(map.get("type")):null);
-        List<Paper> paperList = paperService.queryAll(paper);
+        List<Paper> paperList = paperService.queryAll(paper);       //跟据type获得对应试卷
+
+        Answercard answercard0 =new Answercard();
+        answercard0.setPaperid(paperList!=null?paperList.get(0).getId():null);
+        answercard0.setUserid(user.getId());
+        List<Answercard> answercardList = answercardService.queryAll(answercard0);
+
 
         for (int i = 0; i <questionList.size() ; i++) {
             Answercard answercard =new Answercard();
-            answercard.setPaperid(paperList!=null?paperList.get(0).getId():null);
-            answercard.setQuestionid(questionList.get(i).getId());
-            answercard.setUserid(user.getId());
-            answercard.setAnswer(map.get("Q"+(i+1)));
-            answercardService.insert(answercard);
+            if(answercardList.size()>0){
+                answercard = answercardList.get(i);
+                answercard.setAnswer(map.get("Q"+(i+1)));
+                answercard.setAddtime(new Date());
+                answercardService.update(answercard);
+            } else {
+                answercard.setPaperid(paperList!=null?paperList.get(0).getId():null);
+                answercard.setQuestionid(questionList.get(i).getId());
+                answercard.setAnswer(map.get("Q"+(i+1)));
+                answercard.setUserid(user.getId());
+                answercard.setAddtime(new Date());
+                answercardService.insert(answercard);
+            }
+
+
         }
     }
 
@@ -86,6 +103,10 @@ public class QuestionnaireController {
         User user = new User();
         user.setName(map.get("name"));
         user.setPhone(map.get("phone"));
+        List<User> userList = userService.queryAll(user);
+        if(userList.size()>0){
+            user = userList.get(0);
+        }
         user.setCompany(map.get("company"));
         user.setCity(map.get("city"));
         user.setTown(map.get("town"));
@@ -94,7 +115,12 @@ public class QuestionnaireController {
         user.setManager(map.get("manager"));
         user.setLinkman(map.get("linkman"));
         user.setLobor(map.get("lobor"));
-        userService.insert(user);
+        user.setAddtime(new Date());
+        if(userList.size()>0){
+            userService.update(user);
+        }else {
+            userService.insert(user);
+        }
         return user;
     }
 

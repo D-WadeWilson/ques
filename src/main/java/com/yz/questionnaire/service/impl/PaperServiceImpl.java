@@ -12,7 +12,7 @@ import java.util.List;
  * (Paper)表服务实现类
  *
  * @author makejava
- * @since 2020-05-26 16:45:58
+ * @since 2020-06-01 17:35:51
  */
 @Service("paperService")
 public class PaperServiceImpl implements PaperService {
@@ -30,6 +30,11 @@ public class PaperServiceImpl implements PaperService {
         return this.paperDao.queryById(id);
     }
 
+    @Override
+    public List<Paper> queryAll(Paper paper) {
+        return this.paperDao.queryAll(paper);
+    }
+
     /**
      * 查询多条数据
      *
@@ -42,10 +47,7 @@ public class PaperServiceImpl implements PaperService {
         return this.paperDao.queryAllByLimit(offset, limit);
     }
 
-    @Override
-    public List<Paper> queryAll(Paper paper) {
-        return this.paperDao.queryAll(paper);
-    }
+
 
     /**
      * 新增数据

@@ -1,15 +1,16 @@
 package com.yz.questionnaire.entity;
 
+import java.util.Date;
 import java.io.Serializable;
 
 /**
  * (Answercard)实体类
  *
  * @author makejava
- * @since 2020-05-26 11:58:41
+ * @since 2020-06-01 17:35:36
  */
 public class Answercard implements Serializable {
-    private static final long serialVersionUID = -48270800935982717L;
+    private static final long serialVersionUID = -66761851269491835L;
     
     private Integer id;
     /**
@@ -28,6 +29,10 @@ public class Answercard implements Serializable {
     * 答案
     */
     private String answer;
+    /**
+    * 添加时间
+    */
+    private Date addtime;
 
 
     public Integer getId() {
@@ -68,6 +73,14 @@ public class Answercard implements Serializable {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public Date getAddtime() {
+        return addtime;
+    }
+
+    public void setAddtime(Date addtime) {
+        this.addtime = addtime;
     }
 
 }

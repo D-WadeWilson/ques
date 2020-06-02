@@ -5,12 +5,13 @@
     <resultMap type="com.yz.questionnaire.entity.Paper" id="PaperMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="number" column="number" jdbcType="INTEGER"/>
+        <result property="addtime" column="addTime" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="PaperMap">
         select
-          id, number
+          id, number, addTime
         from questionnaire.paper
         where id = #{id}
     </select>
@@ -18,7 +19,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="PaperMap">
         select
-          id, number
+          id, number, addTime
         from questionnaire.paper
         limit #{offset}, #{limit}
     </select>
@@ -26,7 +27,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="PaperMap">
         select
-          id, number
+          id, number, addTime
         from questionnaire.paper
         <where>
             <if test="id != null">
@@ -35,13 +36,16 @@
             <if test="number != null">
                 and number = #{number}
             </if>
+            <if test="addtime != null">
+                and addTime = #{addtime}
+            </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into questionnaire.paper(number)
-        values (#{number})
+        insert into questionnaire.paper(number, addTime)
+        values (#{number}, #{addtime})
     </insert>
 
     <!--通过主键修改数据-->
@@ -50,6 +54,9 @@
         <set>
             <if test="number != null">
                 number = #{number},
+            </if>
+            <if test="addtime != null">
+                addTime = #{addtime},
             </if>
         </set>
         where id = #{id}

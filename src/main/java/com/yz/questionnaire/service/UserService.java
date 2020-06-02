@@ -7,7 +7,7 @@ import java.util.List;
  * (User)表服务接口
  *
  * @author makejava
- * @since 2020-05-27 12:09:21
+ * @since 2020-06-01 17:36:07
  */
 public interface UserService {
 
@@ -27,6 +27,12 @@ public interface UserService {
      * @return 对象列表
      */
     List<User> queryAllByLimit(int offset, int limit);
+
+
+    /**
+     * 跟据条件查询
+     */
+    List<User> queryAll(User user);
 
     /**
      * 新增数据

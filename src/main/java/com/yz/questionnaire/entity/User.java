@@ -1,15 +1,16 @@
 package com.yz.questionnaire.entity;
 
+import java.util.Date;
 import java.io.Serializable;
 
 /**
  * (User)实体类
  *
  * @author makejava
- * @since 2020-05-27 12:09:21
+ * @since 2020-06-01 17:36:05
  */
 public class User implements Serializable {
-    private static final long serialVersionUID = 942762392925882072L;
+    private static final long serialVersionUID = -35114586709964516L;
     
     private Integer id;
     /**
@@ -52,6 +53,10 @@ public class User implements Serializable {
     * 工会
     */
     private String lobor;
+    /**
+    * 添加时间
+    */
+    private Date addtime;
 
 
     public Integer getId() {
@@ -140,6 +145,14 @@ public class User implements Serializable {
 
     public void setLobor(String lobor) {
         this.lobor = lobor;
+    }
+
+    public Date getAddtime() {
+        return addtime;
+    }
+
+    public void setAddtime(Date addtime) {
+        this.addtime = addtime;
     }
 
 }

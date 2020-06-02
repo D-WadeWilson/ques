@@ -676,7 +676,6 @@ $("#Q18  :radio").on('click',function(){
 
 //请求方法
 function requestfunction(dataStr) {
-	
 	document.getElementById("confirmbtn").disabled=true;
  	$.ajax({
  	type:"post",
@@ -797,7 +796,6 @@ function submitinfo(){
 	if (q1==2) {
 		resultStr="根据答题得出以下调查结果："+"\n"+"您第1题选择了否，不符合调查基本条件！";
 	}
-	alert(tempstr);
 	var confirmview = confirm(resultStr);
 	if (confirmview == true) {
 		requestfunction(tempstr);

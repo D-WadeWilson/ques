@@ -8,12 +8,13 @@
         <result property="paperid" column="paperId" jdbcType="INTEGER"/>
         <result property="questionid" column="questionId" jdbcType="INTEGER"/>
         <result property="answer" column="answer" jdbcType="VARCHAR"/>
+        <result property="addtime" column="addTime" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="AnswercardMap">
         select
-          id, userId, paperId, questionId, answer
+          id, userId, paperId, questionId, answer, addTime
         from questionnaire.answercard
         where id = #{id}
     </select>
@@ -21,7 +22,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="AnswercardMap">
         select
-          id, userId, paperId, questionId, answer
+          id, userId, paperId, questionId, answer, addTime
         from questionnaire.answercard
         limit #{offset}, #{limit}
     </select>
@@ -29,7 +30,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="AnswercardMap">
         select
-          id, userId, paperId, questionId, answer
+          id, userId, paperId, questionId, answer, addTime
         from questionnaire.answercard
         <where>
             <if test="id != null">
@@ -47,13 +48,16 @@
             <if test="answer != null and answer != ''">
                 and answer = #{answer}
             </if>
+            <if test="addtime != null">
+                and addTime = #{addtime}
+            </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into questionnaire.answercard(userId, paperId, questionId, answer)
-        values (#{userid}, #{paperid}, #{questionid}, #{answer})
+        insert into questionnaire.answercard(userId, paperId, questionId, answer, addTime)
+        values (#{userid}, #{paperid}, #{questionid}, #{answer}, #{addtime})
     </insert>
 
     <!--通过主键修改数据-->
@@ -71,6 +75,9 @@
             </if>
             <if test="answer != null and answer != ''">
                 answer = #{answer},
+            </if>
+            <if test="addtime != null">
+                addTime = #{addtime},
             </if>
         </set>
         where id = #{id}

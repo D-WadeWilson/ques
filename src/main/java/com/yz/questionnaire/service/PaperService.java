@@ -7,7 +7,7 @@ import java.util.List;
  * (Paper)表服务接口
  *
  * @author makejava
- * @since 2020-05-26 16:45:58
+ * @since 2020-06-01 17:35:50
  */
 public interface PaperService {
 
@@ -27,7 +27,6 @@ public interface PaperService {
      * @return 对象列表
      */
     List<Paper> queryAllByLimit(int offset, int limit);
-
 
     /**条件查询
      *

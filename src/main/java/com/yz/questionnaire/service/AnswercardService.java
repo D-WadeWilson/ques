@@ -7,7 +7,7 @@ import java.util.List;
  * (Answercard)表服务接口
  *
  * @author makejava
- * @since 2020-05-26 11:58:56
+ * @since 2020-06-01 17:35:40
  */
 public interface AnswercardService {
 
@@ -27,6 +27,9 @@ public interface AnswercardService {
      * @return 对象列表
      */
     List<Answercard> queryAllByLimit(int offset, int limit);
+
+
+    List<Answercard> queryAll(Answercard answercard);
 
     /**
      * 新增数据

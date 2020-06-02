@@ -7,7 +7,7 @@ import java.util.List;
  * (Question)表服务接口
  *
  * @author makejava
- * @since 2020-05-26 16:46:31
+ * @since 2020-06-01 17:35:59
  */
 public interface QuestionService {
 
@@ -28,11 +28,11 @@ public interface QuestionService {
      */
     List<Question> queryAllByLimit(int offset, int limit);
 
-
     /**
      * 跟据条件查询
      */
     List<Question> queryAll(Question question);
+
     /**
      * 新增数据
      *
