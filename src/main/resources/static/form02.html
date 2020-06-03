@@ -127,7 +127,7 @@
 								        <input type="radio" name="Q4" id=""  value="3" > 离异
 								    </label>
 								    <label class="radio-inline">
-								        <input type="radio" name="Q4	" id=""  value="4" > 丧偶
+								        <input type="radio" name="Q4" id=""  value="4" > 丧偶
 								    </label>
 								</div>
 					 		</div>
@@ -233,7 +233,7 @@
 					<div class="container">
 						<div class="row">
 						<div class="tittle">
-							二、核查建档情形(差错评)(核查档案填写)
+							二、核查建档情形(查错评)(核查档案填写)
 						</div>
 						<div class="question"><p>I.建档类别</p></div>
 					 	<div class="question">
@@ -784,6 +784,10 @@ $(document).ready(function(){
 		        		alert("第10题尚未作答！");
 		       		return;
 				}
+				
+				
+				
+				
 				if ($("input[name='Q10']:checked").val()!=1&&typeof($("input[name='Q11']:checked").val())=="undefined") {
 		        		alert("第11题尚未作答！");
 		       		return;
@@ -1094,25 +1098,21 @@ function submitinfo(){
 	tempstr+='}';
 	
 	var res1 = res2 = res3 = res4 = res5 = res6 = "";
+	
 	res1="错评：否";
-	if (typeof(q1)=="undefined"||typeof($('#Q9-1').val())=="undefined"||typeof(q13)=="undefined"||typeof(q1)=="undefined"||typeof(q1)=="undefined") {
+	if (q1==2) {
 		res1="错评：是";
 	}
-	if (q1=="2") {
+	if ($('#Q9-1').val()=="0"||$('#Q9-1').val()=="0.00"||$('#Q9-1').val()=="0.0") {
 		res1="错评：是";
 	}
-	if ($('#Q9-1').val()=="0"||$('#Q9-1').val()=="0.00"||$('#Q9-1').val()=="") {
+	if (q10==2&&q11!=7) {
 		res1="错评：是";
 	}
-	if (q10=="2" || typeof(q10)=="undefined") {
-		if (q11!="7" || typeof(q11)=="undefined") {
-			res1="错评：是";
-		}
-	}
-	if (q13!="8"||typeof(q13)=="undefined") {
+	if (q13=="8") {
 		res1="错评：是";
 	}
-	if (q14=="2"||typeof(q14)=="undefined") {
+	if (q14=="2") {
 		res1="错评：是";
 	}
 	if ($("input[name='Q16']:checked").val()!="4"&&q17=="1") {
@@ -1129,13 +1129,18 @@ function submitinfo(){
 		res6 = "帮扶认可：否";
 	}
 	var resultStr = "根据答题得出以下调查结果："+"\n"+res1+"\n"+res2+"\n"+res3+"\n"+res4+"\n"+res5+"\n"+res6+"\n"+"点击确认提交信息，点击取消返回修改！";
-	if (q1==2) {
-		resultStr="根据答题得出以下调查结果："+"\n"+"错评：是";
+	if (q1==2||q11==8) {
+		resultStr="根据答题得出以下调查结果："+"\n"+"错评：是"+"\n"+"点击确认提交信息，点击取消返回修改！";
+	}
+	if (q1!=2&&q11!=8) {
+		if (q13==8||q14==2) {
+			resultStr = "根据答题得出以下调查结果："+"\n"+res1+"\n"+res3+"\n"+"点击确认提交信息，点击取消返回修改！";
+		}
 	}
 	var confirmview = confirm(resultStr);
 	if (confirmview == true) {
 			requestfunction(tempstr);
-	} else{
+	} else {
 //			alert("返回修改");
 	}
 }

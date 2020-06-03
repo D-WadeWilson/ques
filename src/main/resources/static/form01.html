@@ -332,7 +332,7 @@
 								        <input type="radio"  name="Q13" id="" value="7" > 困难农民工户(农民工且满足前述条件之一)
 								    </label>
 								    <label class="radio-inline">
-								        <input type="radio"  name="Q13" id="" value="8" > 都不满足(结束调查)
+								        <input type="radio"  name="Q13" id="" value="8" > 都不满足
 								    </label>
 								</div>
 								
@@ -349,7 +349,7 @@
 								        		<input type="radio"  name="Q14" id="" value="1" > 是
 								    		</label>
 								    		<label class="radio-inline">
-								       		<input type="radio"  name="Q14" id="" value="2" > 否(结束调查)
+								       		<input type="radio"  name="Q14" id="" value="2" > 否
 								    		</label>
 									 </div>
 								</div>
@@ -386,7 +386,7 @@
  							四、帮扶认可度
  						</div>
  						<div class="question">
- 							<p>16.您对帮扶成效觉得满意满？</p>
+ 							<p>16.您对帮扶成效觉得满意？</p>
  							<label class="radio-inline">
  								<input type="radio"  name="Q16" id="" value="1" >满意
  							</label>
@@ -641,20 +641,20 @@ $("#Q2  :radio").on('click',function(){
 		submitinfo();
 	};
 })
-$("#Q13  :radio").on('click',function(){
-	var item = $(this).val();
-	if(item==8){
-		alert("您选择的条件不符合，调查结束！");
-		submitinfo();
-	};
-})
-$("#Q14  :radio").on('click',function(){
-	var item = $(this).val();
-	if(item==2){
-		alert("您选择了否，调查结束！");
-		submitinfo();
-	};
-})
+//$("#Q13  :radio").on('click',function(){
+//	var item = $(this).val();
+//	if(item==8){
+//		alert("您选择的条件不符合，调查结束！");
+//		submitinfo();
+//	};
+//})
+//$("#Q14  :radio").on('click',function(){
+//	var item = $(this).val();
+//	if(item==2){
+//		alert("您选择了否，调查结束！");
+//		submitinfo();
+//	};
+//})
 $("#Q17  :radio").on('click',function(){
 	var item = $(this).val();
 	if(item==3){
@@ -676,6 +676,7 @@ $("#Q18  :radio").on('click',function(){
 
 //请求方法
 function requestfunction(dataStr) {
+	
 	document.getElementById("confirmbtn").disabled=true;
  	$.ajax({
  	type:"post",
@@ -748,7 +749,7 @@ function submitinfo(){
 	if (q19 == "3" && $('#Q19').val().length>0) {
 		q19+=$('#Q19').val();
 	}
-	if (q1!=2&&q2!=7&&q13!=8&&q14!=2) {
+	if (q1==1&&q2==7&&q13!=8&&q14!=2) {
 		if (typeof($("input[name='Q16']:checked").val())=="undefined") {
         		alert("第16题尚未作答！");
        		return;
@@ -780,9 +781,8 @@ function submitinfo(){
 	}
 	tempstr = tempstr.substr(0,tempstr.length-1);
 	tempstr+='}';
-	
 	var result1 = result2 = "";
-	if (q14=="1" || typeof(q14)=="undefined") {
+	if (q14=="1") {
 		result1 = "漏评：是";
 	} else {
 		result1 = "漏评：否";
@@ -794,8 +794,12 @@ function submitinfo(){
 	}
 	var resultStr = "根据答题得出以下调查结果："+"\n"+result1+"\n"+result2+"\n"+"点击确认提交信息，点击取消返回修改！";
 	if (q1==2) {
-		resultStr="根据答题得出以下调查结果："+"\n"+"您第1题选择了否，不符合调查基本条件！";
+		resultStr="根据答题得出以下调查结果："+"\n"+"您第1题选择了否，不符合调查基本条件！"+"\n"+"点击确认提交信息，点击取消返回修改！";
 	}
+	if (q2!=7) {
+	   resultStr = "根据答题得出以下调查结果："+"\n"+"您的选择不符合继续调查条件！"+"\n"+"点击确认提交信息，点击取消返回修改！";
+	}
+	
 	var confirmview = confirm(resultStr);
 	if (confirmview == true) {
 		requestfunction(tempstr);

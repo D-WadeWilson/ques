@@ -576,7 +576,6 @@ function submitinfo(){
 	
 	// 处理基本信息
 	var manager = $('#manager').val();//负责人
-	var name = "工会问卷5";//负责人
 	var linkman = $('#linkman').val();//联系人
 	var lobor = $('#lobor').val();//工会名
 	var phone = $('#phone').val();//电话
@@ -687,7 +686,7 @@ function submitinfo(){
 	q22 = $("input[name='Q22']:checked").val();
 	q23 = $("#Q23").val();
 	
-	var dic = {'name':name,'type':'5','lobor':lobor,'manager':manager,'phone':phone,'linkman':linkman,'city':city,'town':town,'house':house,
+	var dic = {'name':'工会问卷5','type':'5','lobor':lobor,'manager':manager,'phone':phone,'linkman':linkman,'city':city,'town':town,'house':house,
 	'Q1':q1,'Q2':q2,'Q3':q3,'Q4':q4,'Q5':q5,'Q6':q6,'Q7':q7,'Q8':q8,'Q9':q9,'Q10':q10,
 	'Q11':q11,'Q12':q12,'Q13':q13,'Q14':q14,'Q15':q15,'Q16':q16,'Q17':q17,'Q18':q18,'Q19':q19,
 	'Q20':q20,'Q21':q21,'Q22':q22,'Q23':q23};

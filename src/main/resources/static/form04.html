@@ -178,7 +178,7 @@
 <input type="text" class="form-inline input_after_text" id="Q6-3" placeholder="" style="">元，
 财产性收入(如利息、红利、房租收入等)为
 <input type="text" class="form-inline input_after_text" id="Q6-4" placeholder="" style="">元，
-转移性收入<br />(如养老金、离退休金等，不含低保、救助金)为
+转移性收入(如养老金、离退休金等，不含低保、救助金)为
 <input type="text" class="form-inline input_after_text" id="Q6-5" placeholder="" style="">元。
 					 			</p>
 					 		</div>
@@ -267,7 +267,7 @@
 			
 			<li class="step4">
 				<div class="container">
-					<div class="tittle">三、核查建档情形(差错评)(核查档案填写)</div>
+					<div class="tittle">三、核查建档情形(查错评)(核查档案填写)</div>
 					<div class="question"><p>I.建档类别</p></div>
 					
 					<div class="question">
@@ -338,13 +338,13 @@
 								        <input type="radio"  name="Q14" id="" value="5" > 非其他原因致困户(满足条件A≤3B)(全国级)
 								    </label>
 								    <label class="radio-inline">
-								        <input type="radio"  name="Q15" id="" value="6" > 其他原因致困户(满足条件A＞3B)(全国级)
+								        <input type="radio"  name="Q14" id="" value="6" > 其他原因致困户(满足条件A＞3B)(全国级)
 								    </label>
 								    <label class="radio-inline">
-								        <input type="radio"  name="Q15" id="" value="7" > 困难农民工户(农民工且满足前述条件之一)
+								        <input type="radio"  name="Q14" id="" value="7" > 困难农民工户(农民工且满足前述条件之一)
 								    </label>
 								    <label class="radio-inline">
-								        <input type="radio"  name="Q15" id="" value="8" > 都不满足(结束调查)
+								        <input type="radio"  name="Q14" id="" value="8" > 都不满足(结束调查)
 								    </label>
 								</div>
 					 		</div>
@@ -717,7 +717,7 @@ function submitinfo(){
             }   
     });
     q11 = $("input[name='Q11']:checked").val();
-	q12 = $('#Q12').val()+"|"+$("input[name='Q12']:checked").val();
+	q12 = $("input[name='Q12']:checked").val();
 	q13 = $('#Q13').val();
 	q14 = $("input[name='Q14']:checked").val();
 	q15 = $("input[name='Q15']:checked").val();
@@ -735,7 +735,7 @@ function submitinfo(){
 		q19 += $('#Q19').val();
 	}	
 	
-	if (q1!=2&&q12!=7&&q14!=8&&q15!=2) {
+	if (q1==1&&q11==2&&q12==7&&q14!=8&&q15!=2) {
 		if (typeof($("input[name='Q16']:checked").val())=="undefined") {
         		alert("第16题尚未作答！");
        		return;
@@ -764,10 +764,21 @@ function submitinfo(){
 	tempstr = tempstr.substr(0,tempstr.length-1);
 	tempstr+='}';
 	var res1 = res2 = res3 = res4 = "";
-	if (q1=="1"&&($('#Q9-1').val()!="0"||typeof($('#Q9-1').val())=="undefined")&&(q12!="7"||typeof(q12)=="undefined")&&q14!="8"&&q15=="1") {
+	res1="错评：否";
+	if (q1==2) {
 		res1="错评：是";
-	} else{
-		res1="错评：否"
+	}
+	if ($('#Q9-1').val()=="0"||$('#Q9-1').val()=="0.0"||$('#Q9-1').val()=="0.00") {
+		res1="错评：是";
+	}
+	if (q11==2&&q12!=7) {
+		res1="错评：是";
+	}
+	if (q14==8) {
+		res1="错评：是";
+	}
+	if (q15==2) {
+		res1="错评：是";
 	}
 	res2 = document.getElementById("cuotui").checked==true?"错退：是":"错退：否";
 	if (typeof($("input[name='Q10']:checked").val())=="undefined") {
@@ -786,9 +797,10 @@ function submitinfo(){
 		res4="";
 	}
 	var resultStr = "根据答题得出以下调查结果："+"\n"+res1+"\n"+res2+"\n"+res3+"\n"+res4+"\n"+"点击确认提交信息，点击取消返回修改！";
-	if (q1==2) {
-		resultStr="根据答题得出以下调查结果："+"\n"+"错评：是";
+	if (q1==2 || (q11==2&&q12!=7)) {
+		resultStr="根据答题得出以下调查结果："+"\n"+"错评：是"+"\n"+res3+"\n"+"点击确认提交信息，点击取消返回修改！";
 	}
+	
 	
 	var confirmview = confirm(resultStr);
 	if (confirmview == true) {

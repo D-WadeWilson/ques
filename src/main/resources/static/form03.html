@@ -308,7 +308,7 @@
 				<li class="step4">
 					<div class="container">
 						<div class="row">
-							<div class="tittle">三、核查建档情形(差错评)(核查档案填写)</div>
+							<div class="tittle">三、核查建档情形(查错评)(核查档案填写)</div>
 							<div class="question"><p>I.建档类别</p></div>
 					 		
 					 		
@@ -855,6 +855,7 @@ $("#Q13  :radio").on('click',function(){
 	var item = $(this).val();
 	if(item==1){
 		alert("您选择了是，请跳到第15题！");
+		$("input[name='Q14']:checked").prop('checked','');
 	};
 })
 $("#Q14  :radio").on('click',function(){
@@ -1036,10 +1037,10 @@ function submitinfo(){
 		q24 += $('#Q24-2').val();
 	}
 	if (q1!=2&&(q14==7||typeof(q14)=="undefined")&&q15!=8&&q16!=2) {
-		if (typeof($("input[name='Q24']:checked").val())=="undefined") {
-		        		alert("第24题尚未作答！");
-		       		return;
-				}
+		if (typeof($("input[name='Q24-1']:checked").val())=="undefined"||typeof(low24)=="undefined") {
+        		alert("第24题尚未作答完毕！");
+       		return;
+		}
 	}
 	var dic = {'type':'3','name':name,'phone':phone,'company':company,'city':city,'town':town,'house':house,
 	'Q1':q1,'Q2':q2,'Q3':q3,'Q4':q4,'Q5':q5,'Q6':q6,'Q7':q7,'Q8':q8,'Q9':q9,'Q10':q10,
@@ -1055,14 +1056,27 @@ function submitinfo(){
 	}
 	tempstr = tempstr.substr(0,tempstr.length-1);
 	tempstr+='}';
-
+	
 	var res1 = res2 = res3 = res4 = res5 = res6 = "";
-	if (q1=="1"&&($('#Q9-1').val()!="0"||typeof($('#Q9-1').val())!="undefined")&&(q14!="7"||typeof(q14)!="undefined")&&q15!="8"&&q16=="1") {
-		res1="错评：否";
-	} else{
+	res1="错评：否";
+	if (q1==2) {
 		res1="错评：是";
 	}
-	res2 = $("input[name='Q12']:checked").val()=="1"?"错退：否":"错退：是";
+	if ($('#Q9-1').val()=="0"||$('#Q9-1').val()=="0.00"||$('#Q9-1').val()=="0.0") {
+		res1="错评：是";
+	}
+	if (q12==2&&q14!=7) {
+		res1="错评：是";
+	}
+	if (q15==8) {
+		res1="错评：是";
+	}
+	if (q16==2) {
+		res1="错评：是";
+	}
+
+	
+	res2 = $("input[name='Q12']:checked").val()=="2"?"错退：是":"错退：否";
 	res3 = q13=="1"?"信息比对：是":"信息比对：否";
 	res4 = $("input[name='Q24-1']:checked").val()=="1"?"结对帮扶：有":"结对帮扶：无";
 	res5 = q19=="1"?"精准施策：是":"精准施策：否";
@@ -1073,8 +1087,12 @@ function submitinfo(){
 	}
 	var resultStr = "根据答题得出以下调查结果："+"\n"+res1+"\n"+res2+"\n"+res3+"\n"+res4+"\n"+res5+"\n"+res6+"\n"+"点击确认提交信息，点击取消返回修改！";
 	if (q1==2) {
-		resultStr="根据答题得出以下调查结果："+"\n"+"错评：是";
+		resultStr="根据答题得出以下调查结果："+"\n"+res1+"\n"+"点击确认提交信息，点击取消返回修改！";
 	}
+	if ((q13==2&&q14!=8)||q15==8||q16==2) {
+		resultStr="根据答题得出以下调查结果："+"\n"+res1+"\n"+res2+"\n"+res3+"\n"+"点击确认提交信息，点击取消返回修改！";
+	}
+	
 	var confirmview = confirm(resultStr);
 	if (confirmview == true) {
 			requestfunction(tempstr);
