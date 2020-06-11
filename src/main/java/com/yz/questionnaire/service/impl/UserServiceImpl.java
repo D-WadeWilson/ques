@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (User)表服务实现类
@@ -81,4 +82,31 @@ public class UserServiceImpl implements UserService {
     public boolean deleteById(Integer id) {
         return this.userDao.deleteById(id) > 0;
     }
+
+    /**
+     * 新增数据
+     *
+     * @param
+     * @return 实例对象
+     */
+    @Override
+    public int queryCountUser(Map<String, String>map) {
+        User user = new User();
+        user.setType(map.get("type")!=null?Integer.valueOf(map.get("type")):null);
+        user.setCity(map.get("city"));
+        if(map.get("house")!=null&&!map.get("town").equals("全部")){
+            user.setTown(map.get("town"));
+        }
+        if(map.get("house")!=null&&!map.get("house").equals("全部")){
+            user.setTown(map.get("house"));
+        }
+        return this.userDao.queryCountUser(user);
+    }
+
+    @Override
+    public int queryCountUserType(List<String> typeList) {
+        return this.userDao.queryCountUserType(typeList);
+    }
+
+
 }

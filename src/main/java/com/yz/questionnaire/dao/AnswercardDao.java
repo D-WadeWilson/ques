@@ -4,6 +4,7 @@ import com.yz.questionnaire.entity.Answercard;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Answercard)表数据库访问层
@@ -63,5 +64,12 @@ public interface AnswercardDao {
      * @return 影响行数
      */
     int deleteById(Integer id);
+
+    /**
+     * 查询符合条件的评价
+     */
+    int queryCondtionEvaluate(Map<String,Object> paramsMap);
+
+    int queryCondtionEvaluate2(Map<String,Object> paramsMap);
 
 }

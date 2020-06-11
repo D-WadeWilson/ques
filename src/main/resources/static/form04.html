@@ -331,9 +331,9 @@
 								    <label class="radio-inline">
 								        <input type="radio"  name="Q14" id="" value="3" > 非其他原因致困户(非低保户且满足条件A≤1.5XB)(省级)
 								    </label>
-								    <label class="radio-inline">
+								    <!--<label class="radio-inline">
 								        <input type="radio"  name="Q14" id="" value="4" > 非其他原因致困户(非低保户且满足条件A≤2XB)(市级)
-								    </label>
+								    </label>-->
 								    <label class="radio-inline">
 								        <input type="radio"  name="Q14" id="" value="5" > 非其他原因致困户(满足条件A≤3B)(全国级)
 								    </label>
@@ -601,8 +601,12 @@
 $("#Q1  :radio").on('click',function(){
 	var item = $(this).val();
 	if(item==2){
-		alert("您选择了否，调查结束！");
-		submitinfo();
+		var c = confirm("您选择了否，不符合基本调查条件！点击确定提交信息，点击取消继续答题！");
+		if (c==true) {		
+			submitinfo();
+		} else{
+			
+		}
 	};
 })
 $("#Q11  :radio").on('click',function(){
@@ -735,24 +739,24 @@ function submitinfo(){
 		q19 += $('#Q19').val();
 	}	
 	
-	if (q1==1&&q11==2&&q12==7&&q14!=8&&q15!=2) {
-		if (typeof($("input[name='Q16']:checked").val())=="undefined") {
-        		alert("第16题尚未作答！");
-       		return;
-		}
-		if (typeof(q17)=="undefined") {
-			alert("第17题尚未作答！");
-	       	return;
-		}
-		if (q17!=3&&typeof($("input[name='Q18']:checked").val())=="undefined") {
-			alert("第18题尚未作答！");
-	       	return;
-		}
-		if (typeof($("input[name='Q19']:checked").val())=="undefined") {
-			alert("第19题尚未作答！");
-	       	return;
-		}
-	}
+//	if (q1==1&&q11==2&&q12==7&&q14!=8&&q15!=2) {
+//		if (typeof($("input[name='Q16']:checked").val())=="undefined") {
+//      		alert("第16题尚未作答！");
+//     		return;
+//		}
+//		if (typeof(q17)=="undefined") {
+//			alert("第17题尚未作答！");
+//	       	return;
+//		}
+//		if (q17!=3&&typeof($("input[name='Q18']:checked").val())=="undefined") {
+//			alert("第18题尚未作答！");
+//	       	return;
+//		}
+//		if (typeof($("input[name='Q19']:checked").val())=="undefined") {
+//			alert("第19题尚未作答！");
+//	       	return;
+//		}
+//	}
 	var dic = {'type':'4','name':name,'phone':phone,'company':company,'city':city,'town':town,'house':house,
 	'Q1':q1,'Q2':q2,'Q3':q3,'Q4':q4,'Q5':q5,'Q6':q6,'Q7':q7,'Q8':q8,'Q9':q9,'Q10':q10,
 	'Q11':q11,'Q12':q12,'Q13':q13,'Q14':q14,'Q15':q15,'Q16':q16,'Q17':q17,'Q18':q18,'Q19':q19};
@@ -768,9 +772,9 @@ function submitinfo(){
 	if (q1==2) {
 		res1="错评：是";
 	}
-	if ($('#Q9-1').val()=="0"||$('#Q9-1').val()=="0.0"||$('#Q9-1').val()=="0.00") {
-		res1="错评：是";
-	}
+//	if ($('#Q9-1').val()=="0"||$('#Q9-1').val()=="0.0"||$('#Q9-1').val()=="0.00") {
+//		res1="错评：是";
+//	}
 	if (q11==2&&q12!=7) {
 		res1="错评：是";
 	}
@@ -782,25 +786,26 @@ function submitinfo(){
 	}
 	res2 = document.getElementById("cuotui").checked==true?"错退：是":"错退：否";
 	if (typeof($("input[name='Q10']:checked").val())=="undefined") {
-		res2="";
+		res2="错退：未知（该题未答）";
 	}
 	res3 = q11=="1"?"信息比对：是":"信息比对：否";
-	if (typeof($("input[name='Q11']:checked").val())=="undefined") {
-		res3="";
+	if (typeof(q11)=="undefined") {
+		res3="信息比对：未知（该题未答）";	
 	}
 	if ($("input[name='Q16']:checked").val()=="1"||$("input[name='Q16']:checked").val()=="2") {
 		res4 = "帮扶认可：是";
 	} else{
-		res4 = "帮扶认可：否";
-	}
-	if (typeof($("input[name='Q16']:checked").val())=="undefined") {
-		res4="";
+		if (typeof($("input[name='Q16']:checked").val())=="undefined") {
+			res4 = "帮扶认可：未知（该题未答）";
+		} else {
+			res4 = "帮扶认可：否";
+		}
 	}
 	var resultStr = "根据答题得出以下调查结果："+"\n"+res1+"\n"+res2+"\n"+res3+"\n"+res4+"\n"+"点击确认提交信息，点击取消返回修改！";
-	if (q1==2 || (q11==2&&q12!=7)) {
-		resultStr="根据答题得出以下调查结果："+"\n"+"错评：是"+"\n"+res3+"\n"+"点击确认提交信息，点击取消返回修改！";
-	}
-	
+//	if (q1==2 || (q12!=7&&typeof(q12)!="undefined")) {
+//		resultStr="根据答题得出以下调查结果："+"\n"+"错评：是"+"\n"+"点击确认提交信息，点击取消返回修改！";
+//	}
+//	
 	
 	var confirmview = confirm(resultStr);
 	if (confirmview == true) {

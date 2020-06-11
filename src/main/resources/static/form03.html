@@ -368,9 +368,9 @@
 								    <label class="radio-inline">
 								        <input type="radio"  name="Q15" id="" value="3" > 非其他原因致困户(非低保户且满足条件A≤1.5XB)(省级)
 								    </label>
-								    <label class="radio-inline">
+								    <!--<label class="radio-inline">
 								        <input type="radio"  name="Q15" id="" value="4" > 非其他原因致困户(非低保户且满足条件A≤2XB)(市级)
-								    </label>
+								    </label>-->
 								    <label class="radio-inline">
 								        <input type="radio"  name="Q15" id="" value="5" > 非其他原因致困户(满足条件A≤3B)(全国级)
 								    </label>
@@ -523,12 +523,14 @@
 							
 							<div class="question">
 								<p>19.这些帮扶方式与致困原因紧密对应吗？(调查员查10题致困原因和18题帮扶方式)</p>
-								<label class="radio-inline">
+								<div id="Q19">
+									<label class="radio-inline">
 								        <input type="radio"  name="Q19" id="" value="1" > 是
-							    </label>
-							    <label class="radio-inline">
-								        <input type="radio"  name="Q19" id="" value="2" > 否
-								 </label>
+								    </label>
+								    <label class="radio-inline">
+									     <input type="radio"  name="Q19" id="" value="2" > 否
+									 </label>
+								</div>
 							</div>
 
 						</div>						
@@ -813,22 +815,22 @@
 		});
   
   		$('.step6 .next_button').on('click',function  () {
-  			if (typeof($("input[name='Q20']:checked").val())=="undefined") {
-		        		alert("第20题尚未作答！");
-		       		return;
-				}
-  			if (typeof($("input[name='Q21']:checked").val())=="undefined") {
-		        		alert("第21题尚未作答！");
-		       		return;
-				}
-  			if ($("input[name='Q21']:checked").val()!=3&&typeof($("input[name='Q22']:checked").val())=="undefined") {
-		        		alert("第22题尚未作答！");
-		       		return;
-				}
-  			if (typeof($("input[name='Q23']:checked").val())=="undefined") {
-		        		alert("第23题尚未作答！");
-		       		return;
-				}
+//			if (typeof($("input[name='Q20']:checked").val())=="undefined") {
+//		        		alert("第20题尚未作答！");
+//		       		return;
+//				}
+//			if (typeof($("input[name='Q21']:checked").val())=="undefined") {
+//		        		alert("第21题尚未作答！");
+//		       		return;
+//				}
+//			if ($("input[name='Q21']:checked").val()!=3&&typeof($("input[name='Q22']:checked").val())=="undefined") {
+//		        		alert("第22题尚未作答！");
+//		       		return;
+//				}
+//			if (typeof($("input[name='Q23']:checked").val())=="undefined") {
+//		        		alert("第23题尚未作答！");
+//		       		return;
+//				}
 			$('.step7').show();
 			$('.step7').siblings().hide();
 		});
@@ -847,8 +849,12 @@
 $("#Q1  :radio").on('click',function(){
 	var item = $(this).val();
 	if(item==2){
-		alert("您选择了否，调查结束！");
-		submitinfo();
+		var c = confirm("您选择了否，不符合基本调查条件！点击确定提交信息，点击取消继续答题！");
+		if (c==true) {		
+			submitinfo();
+		} else{
+			
+		}
 	};
 })
 $("#Q13  :radio").on('click',function(){
@@ -889,6 +895,9 @@ $("#Q16  :radio").on('click',function(){
 		alert("您选择了否，调查结束！");
 		submitinfo();
 	};
+})
+$("#Q19  :radio").on('click',function(){
+	alert("请调查人员核查10题致困原因和18题帮扶方式！");
 })
 $("#Q21  :radio").on('click',function(){
 	var item = $(this).val();
@@ -1036,12 +1045,12 @@ function submitinfo(){
 	if (low24 =="5" && $('#Q24-2').val().length>0) {
 		q24 += $('#Q24-2').val();
 	}
-	if (q1!=2&&(q14==7||typeof(q14)=="undefined")&&q15!=8&&q16!=2) {
-		if (typeof($("input[name='Q24-1']:checked").val())=="undefined"||typeof(low24)=="undefined") {
-        		alert("第24题尚未作答完毕！");
-       		return;
-		}
-	}
+//	if (q1!=2&&(q14==7||typeof(q14)=="undefined")&&q15!=8&&q16!=2) {
+//		if (typeof($("input[name='Q24-1']:checked").val())=="undefined"||typeof(low24)=="undefined") {
+//      		alert("第24题尚未作答完毕！");
+//     		return;
+//		}
+//	}
 	var dic = {'type':'3','name':name,'phone':phone,'company':company,'city':city,'town':town,'house':house,
 	'Q1':q1,'Q2':q2,'Q3':q3,'Q4':q4,'Q5':q5,'Q6':q6,'Q7':q7,'Q8':q8,'Q9':q9,'Q10':q10,
 	'Q11':q11,'Q12':q12,'Q13':q13,'Q14':q14,'Q15':q15,'Q16':q16,'Q17':q17,'Q18':q18,'Q19':q19,
@@ -1062,9 +1071,9 @@ function submitinfo(){
 	if (q1==2) {
 		res1="错评：是";
 	}
-	if ($('#Q9-1').val()=="0"||$('#Q9-1').val()=="0.00"||$('#Q9-1').val()=="0.0") {
-		res1="错评：是";
-	}
+//	if ($('#Q9-1').val()=="0"||$('#Q9-1').val()=="0.00"||$('#Q9-1').val()=="0.0") {
+//		res1="错评：是";
+//	}
 	if (q12==2&&q14!=7) {
 		res1="错评：是";
 	}
@@ -1077,21 +1086,35 @@ function submitinfo(){
 
 	
 	res2 = $("input[name='Q12']:checked").val()=="2"?"错退：是":"错退：否";
+	if (typeof($("input[name='Q12']:checked").val())=="undefined") {
+		res2="错退：未知（该题未答）";
+	}
 	res3 = q13=="1"?"信息比对：是":"信息比对：否";
-	res4 = $("input[name='Q24-1']:checked").val()=="1"?"结对帮扶：有":"结对帮扶：无";
+	if (typeof(q13)=="undefined") {
+		res3="信息比对：未知（该题未答）";
+	}
+	res4 = $("input[name='Q24-1']:checked").val()=="1"?"结对帮扶：有": $("input[name='Q24-1']:checked").val()=="2" ? "结对帮扶：无" :"结对帮扶：未知（该题未答）";
 	res5 = q19=="1"?"精准施策：是":"精准施策：否";
+	if (typeof(q19)=="undefined") {
+		res5 = "精准施策：未知（该题未答）";
+	}
 	if ($("input[name='Q20']:checked").val()=="1"||$("input[name='Q20']:checked").val()=="2") {
 		res6 = "帮扶认可：是";
 	} else{
-		res6 = "帮扶认可：否";
+		if (typeof($("input[name='Q20']:checked").val())=="undefined") {
+			res6 = "帮扶认可：未知（该题未答）";
+		} else {
+			res6 = "帮扶认可：否";
+		}
+		
 	}
 	var resultStr = "根据答题得出以下调查结果："+"\n"+res1+"\n"+res2+"\n"+res3+"\n"+res4+"\n"+res5+"\n"+res6+"\n"+"点击确认提交信息，点击取消返回修改！";
-	if (q1==2) {
-		resultStr="根据答题得出以下调查结果："+"\n"+res1+"\n"+"点击确认提交信息，点击取消返回修改！";
-	}
-	if ((q13==2&&q14!=8)||q15==8||q16==2) {
-		resultStr="根据答题得出以下调查结果："+"\n"+res1+"\n"+res2+"\n"+res3+"\n"+"点击确认提交信息，点击取消返回修改！";
-	}
+//	if (q1==2) {
+//		resultStr="根据答题得出以下调查结果："+"\n"+res1+"\n"+"点击确认提交信息，点击取消返回修改！";
+//	}
+//	if ((q13==2&&q14!=8)||q15==8||q16==2) {
+//		resultStr="根据答题得出以下调查结果："+"\n"+res1+"\n"+res2+"\n"+res3+"\n"+"点击确认提交信息，点击取消返回修改！";
+//	}
 	
 	var confirmview = confirm(resultStr);
 	if (confirmview == true) {

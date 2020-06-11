@@ -33,6 +33,67 @@
         limit #{offset}, #{limit}
     </select>
 
+    <!--查询个数-->
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryCountUser" resultType="java.lang.Integer" >
+        select
+        count(*)
+        from questionnaire.user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="manager != null and manager != ''">
+                and manager = #{manager}
+            </if>
+            <if test="linkman != null and linkman != ''">
+                and linkman = #{linkman}
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone = #{phone}
+            </if>
+            <if test="company != null and company != ''">
+                and company = #{company}
+            </if>
+            <if test="city != null and city != ''">
+                and city = #{city}
+            </if>
+            <if test="town != null and town != ''">
+                and town = #{town}
+            </if>
+            <if test="house != null and house != ''">
+                and house = #{house}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="lobor != null and lobor != ''">
+                and lobor = #{lobor}
+            </if>
+            <if test="addtime != null">
+                and addTime = #{addtime}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="queryCountUserType" resultType="java.lang.Integer" >
+        select
+        count(*)
+        from questionnaire.user
+        <where>
+        type in
+            <foreach collection="list" item="type" index="index"
+                     open="(" close=")" separator=",">
+                #{type}
+            </foreach>
+        </where>
+    </select>
+
+
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="UserMap">
         select

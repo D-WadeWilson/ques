@@ -54,6 +54,70 @@
         </where>
     </select>
 
+    <select id="queryCondtionEvaluate" parameterType="java.util.Map" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM(
+        select t1.userId
+        from `answercard` t1
+        left join `user` t2 on t1.userId = t2.id
+        WHERE t2.type = #{typeNo} AND
+        (
+        <if test="quesNo1 != null and quesNo1 != ''">
+            (t1.questionId = #{quesNo1} and t1.answer = #{answerNo1})
+        </if>
+        <!--<if test="quesNo2 != null and quesNo2 != ''">-->
+            <!--or (t1.questionId = #{quesNo2} and t1.answer in ('0','0.0','0.00'))-->
+        <!--</if>-->
+        <if test="quesNo3 != null and quesNo3 != ''">
+            or (t1.questionId = #{quesNo3} and t1.answer in
+            <foreach collection="list" item="answer" index="index"
+                     open="(" close=")" separator=",">
+                #{answer}
+            </foreach>)
+        </if>
+        <if test="quesNo4 != null and quesNo4 != ''">
+            or (t1.questionId = #{quesNo4} and t1.answer = '8')
+        </if>
+        <if test="quesNo5 != null and quesNo5 != ''">
+            or (t1.questionId = #{quesNo5} and t1.answer = '2')
+        </if>
+        <if test="quesNo6 != null and quesNo6 != ''">
+            or (t1.questionId = #{quesNo6} and t1.answer like CONCAT('%',#{answerNo6},'%'))
+        </if>
+        <if test="quesNo7 != null and quesNo7 != ''">
+            (t1.questionId = #{quesNo7} and t1.answer like CONCAT('%',#{answerNo7},'%'))
+        </if>
+        <if test="quesNo8 != null and quesNo8 != ''">
+            ((t1.questionId = #{quesNo8} and t1.answer in ('1','2')))
+        </if>
+
+        )
+        GROUP BY t1.userId) t
+    </select>
+
+    <select id="queryCondtionEvaluate2" parameterType="java.util.Map" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM(
+        select t1.userId
+        from `answercard` t1
+        left join `user` t2 on t1.userId = t2.id
+        WHERE t2.type = #{typeNo} AND
+        ( (t1.questionId = #{quesNo1} and t1.answer = #{answerNo1})
+          <if test="quesNo2 != null and quesNo2 != ''">
+            AND ((t1.questionId = #{quesNo2} and t1.answer in
+            <foreach collection="list" item="answer" index="index"
+                     open="(" close=")" separator=",">
+                #{answer}
+            </foreach>
+            <if test="quesNo3 != null and quesNo3 != ''">
+                or (t1.questionId = #{quesNo3} and t1.answer like CONCAT('%',#{answerNo3},'%'))
+            </if>
+            ))
+        </if>
+        )
+        GROUP BY t1.userId) t
+    </select>
+
+
+
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into questionnaire.answercard(userId, paperId, questionId, answer, addTime)

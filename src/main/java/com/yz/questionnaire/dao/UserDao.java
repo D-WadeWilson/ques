@@ -4,6 +4,7 @@ import com.yz.questionnaire.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (User)表数据库访问层
@@ -65,4 +66,12 @@ public interface UserDao {
      */
     int deleteById(Integer id);
 
+    /**
+     * 查询条件返回数量
+     * @param user
+     * @return
+     */
+    int queryCountUser(User user);
+
+    int queryCountUserType(List<String> typeList);
 }

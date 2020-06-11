@@ -319,9 +319,9 @@
 								    <label class="radio-inline">
 								        <input type="radio"  name="Q13" id="" value="3" > 非其他原因致困户(非低保户且满足条件A≤1.5XB)(省级)
 								    </label>
-								    <label class="radio-inline">
+								    <!--<label class="radio-inline">
 								        <input type="radio"  name="Q13" id="" value="4" > 非其他原因致困户(非低保户且满足条件A≤2XB)(市级)
-								    </label>
+								    </label>-->
 								    <label class="radio-inline">
 								        <input type="radio"  name="Q13" id="" value="5" > 非其他原因致困户(满足条件A≤3B)(全国级)
 								    </label>
@@ -630,8 +630,12 @@
 $("#Q1  :radio").on('click',function(){
 	var item = $(this).val();
 	if(item==2) {
-		alert("您选择了否，调查结束！");
-		submitinfo();
+		var c = confirm("您选择了否，不符合基本调查条件！点击确定提交信息，点击取消继续答题！");
+		if (c==true) {		
+			submitinfo();
+		} else{
+			
+		}
 	};
 })
 $("#Q2  :radio").on('click',function(){
@@ -792,6 +796,7 @@ function submitinfo(){
 	} else {
 		result2 = "帮扶认可：否";
 	}
+	
 	var resultStr = "根据答题得出以下调查结果："+"\n"+result1+"\n"+result2+"\n"+"点击确认提交信息，点击取消返回修改！";
 	if (q1==2) {
 		resultStr="根据答题得出以下调查结果："+"\n"+"您第1题选择了否，不符合调查基本条件！"+"\n"+"点击确认提交信息，点击取消返回修改！";

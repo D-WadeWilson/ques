@@ -2,6 +2,7 @@ package com.yz.questionnaire.service;
 
 import com.yz.questionnaire.entity.User;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (User)表服务接口
@@ -57,5 +58,16 @@ public interface UserService {
      * @return 是否成功
      */
     boolean deleteById(Integer id);
+
+    /**
+     * 通过条件查询数量
+     * @param user
+     * @return
+     */
+    int queryCountUser(Map<String, String> map);
+
+    int queryCountUserType(List<String> typeList);
+
+
 
 }

@@ -1,7 +1,10 @@
 package com.yz.questionnaire.service;
 
 import com.yz.questionnaire.entity.Answercard;
+
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Answercard)表服务接口
@@ -54,5 +57,51 @@ public interface AnswercardService {
      * @return 是否成功
      */
     boolean deleteById(Integer id);
+
+    /**
+     *
+     *错评率
+     * @return
+     */
+    BigDecimal queryErrorEvaluate();
+
+
+    /**
+     * 漏评率
+     */
+    BigDecimal queryMissEvaluate();
+
+    /**
+     * 错退率
+     * @return
+     */
+    BigDecimal queryErrorExit();
+
+    /**
+     * 漏退率
+     */
+    BigDecimal queryMissExit();
+
+    /**
+     * 信息对比率
+     */
+    BigDecimal queryInfoComparison();
+
+    /**
+     * 结对帮扶覆盖率
+     */
+    BigDecimal queryPairingrate();
+
+    /**
+     * 帮扶方式精准率
+     */
+    BigDecimal queryExactrate();
+
+    /**
+     * 帮扶工作满意度
+     */
+    BigDecimal queryPleasedrate();
+
+
 
 }
