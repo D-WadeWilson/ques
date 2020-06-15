@@ -73,5 +73,7 @@ public interface UserDao {
      */
     int queryCountUser(User user);
 
-    int queryCountUserType(List<String> typeList);
+    int queryCountUserType(Map<String,Object> paramsMap);
+
+    int queryCountNotUndef(Map<String,Object> paramsMap);
 }

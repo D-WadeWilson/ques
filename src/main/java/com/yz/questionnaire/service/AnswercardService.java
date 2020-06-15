@@ -63,44 +63,44 @@ public interface AnswercardService {
      *错评率
      * @return
      */
-    BigDecimal queryErrorEvaluate();
+    BigDecimal queryErrorEvaluate(Map<String, String> map);
 
 
     /**
      * 漏评率
      */
-    BigDecimal queryMissEvaluate();
+    BigDecimal queryMissEvaluate(Map<String, String> map);
 
     /**
      * 错退率
      * @return
      */
-    BigDecimal queryErrorExit();
+    BigDecimal queryErrorExit(Map<String, String> map);
 
     /**
      * 漏退率
      */
-    BigDecimal queryMissExit();
+    BigDecimal queryMissExit(Map<String, String> map);
 
     /**
      * 信息对比率
      */
-    BigDecimal queryInfoComparison();
+    BigDecimal queryInfoComparison(Map<String, String> map);
 
     /**
      * 结对帮扶覆盖率
      */
-    BigDecimal queryPairingrate();
+    BigDecimal queryPairingrate(Map<String, String> map);
 
     /**
      * 帮扶方式精准率
      */
-    BigDecimal queryExactrate();
+    BigDecimal queryExactrate(Map<String, String> map);
 
     /**
      * 帮扶工作满意度
      */
-    BigDecimal queryPleasedrate();
+    BigDecimal queryPleasedrate(Map<String, String> map);
 
 
 

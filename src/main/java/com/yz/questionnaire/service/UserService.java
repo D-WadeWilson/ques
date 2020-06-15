@@ -1,6 +1,7 @@
 package com.yz.questionnaire.service;
 
 import com.yz.questionnaire.entity.User;
+
 import java.util.List;
 import java.util.Map;
 
@@ -64,9 +65,9 @@ public interface UserService {
      * @param user
      * @return
      */
-    int queryCountUser(Map<String, String> map);
+    List queryCountUser(Map<String, String> map);
 
-    int queryCountUserType(List<String> typeList);
+    int queryCountUserType(Map<String, Object> map);
 
 
 

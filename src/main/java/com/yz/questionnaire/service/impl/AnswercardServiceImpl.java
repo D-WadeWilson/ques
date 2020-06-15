@@ -94,8 +94,10 @@ public class AnswercardServiceImpl implements AnswercardService {
 
 
     @Override
-    public BigDecimal queryErrorEvaluate() {
+    public BigDecimal queryErrorEvaluate(Map<String, String> map) {
         HashMap<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("city",map.get("city"));
+        paramsMap.put("town",map.get("town"));
         paramsMap.put("typeNo","2");
         paramsMap.put("answerNo1","2");
         paramsMap.put("quesNo1","20");
@@ -132,7 +134,8 @@ public class AnswercardServiceImpl implements AnswercardService {
         typeList.add("2");
         typeList.add("3");
         typeList.add("4");
-        int result4 = userDao.queryCountUserType(typeList);
+        paramsMap.put("list",typeList);
+        int result4 = userDao.queryCountUserType(paramsMap);
 
         Integer resultup = result1+result2+result3;
 
@@ -142,8 +145,10 @@ public class AnswercardServiceImpl implements AnswercardService {
     }
 
     @Override
-    public BigDecimal queryMissEvaluate() {
+    public BigDecimal queryMissEvaluate(Map<String, String> map) {
         HashMap<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("city",map.get("city"));
+        paramsMap.put("town",map.get("town"));
         paramsMap.put("typeNo","1");
         paramsMap.put("answerNo1","1");
         paramsMap.put("quesNo1","14");
@@ -151,6 +156,8 @@ public class AnswercardServiceImpl implements AnswercardService {
 
         User user = new User();
         user.setType(1);
+        user.setCity(map.get("city"));
+        user.setTown(map.get("town"));
         int down = userDao.queryCountUser(user);
 
         BigDecimal result = getResultData(up, down);
@@ -158,11 +165,13 @@ public class AnswercardServiceImpl implements AnswercardService {
     }
 
     @Override
-    public BigDecimal queryErrorExit() {
+    public BigDecimal queryErrorExit(Map<String, String> map) {
         HashMap<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("city",map.get("city"));
+        paramsMap.put("town",map.get("town"));
         paramsMap.put("typeNo","3");
-        paramsMap.put("quesNo6","56");
-        paramsMap.put("answerNo6","|2");
+        paramsMap.put("quesNo7","56");
+        paramsMap.put("answerNo7","|2");
 
         int up1 = answercardDao.queryCondtionEvaluate(paramsMap);
 
@@ -170,6 +179,8 @@ public class AnswercardServiceImpl implements AnswercardService {
         paramsMap.put("typeNo","4");
         paramsMap.put("quesNo1","78");
         paramsMap.put("answerNo1","9");
+        paramsMap.put("city",map.get("city"));
+        paramsMap.put("town",map.get("town"));
 
         int up2 = answercardDao.queryCondtionEvaluate(paramsMap);
         int up = up1+up2;
@@ -177,15 +188,20 @@ public class AnswercardServiceImpl implements AnswercardService {
         ArrayList<String> typeList = new ArrayList<>();
         typeList.add("3");
         typeList.add("4");
-        int down = userDao.queryCountUserType(typeList);
+        paramsMap.put("list",typeList);
+
+
+        int down = userDao.queryCountUserType(paramsMap);
         BigDecimal result = getResultData(up, down);
 
         return result;
     }
 
     @Override
-    public BigDecimal queryMissExit() {
+    public BigDecimal queryMissExit(Map<String, String> map) {
         HashMap<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("city",map.get("city"));
+        paramsMap.put("town",map.get("town"));
         paramsMap.put("typeNo","2");
         paramsMap.put("quesNo1","36");
         paramsMap.put("answerNo1","2");
@@ -200,6 +216,8 @@ public class AnswercardServiceImpl implements AnswercardService {
 
         User user = new User();
         user.setType(2);
+        user.setCity(map.get("city"));
+        user.setTown(map.get("town"));
         int down = userDao.queryCountUser(user);
 
         BigDecimal result = getResultData(up, down);
@@ -207,8 +225,10 @@ public class AnswercardServiceImpl implements AnswercardService {
     }
 
     @Override
-    public BigDecimal queryInfoComparison() {
+    public BigDecimal queryInfoComparison(Map<String, String> map) {
         HashMap<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("city",map.get("city"));
+        paramsMap.put("town",map.get("town"));
         paramsMap.put("typeNo","2");
         paramsMap.put("quesNo1","29");
         paramsMap.put("answerNo1","1");
@@ -216,6 +236,8 @@ public class AnswercardServiceImpl implements AnswercardService {
 
         User user = new User();
         user.setType(2);
+        user.setCity(map.get("city"));
+        user.setTown(map.get("town"));
         int down = userDao.queryCountUser(user);
 
         BigDecimal result = getResultData(up, down);
@@ -223,11 +245,14 @@ public class AnswercardServiceImpl implements AnswercardService {
     }
 
     @Override
-    public BigDecimal queryPairingrate() {
+    public BigDecimal queryPairingrate(Map<String, String> map) {
         HashMap<String, Object> paramsMap = new HashMap<>();
         paramsMap.put("typeNo","2");
         paramsMap.put("quesNo7","44");
         paramsMap.put("answerNo7","1|");
+        paramsMap.put("city",map.get("city"));
+        paramsMap.put("town",map.get("town"));
+
         int up1 = answercardDao.queryCondtionEvaluate(paramsMap);
 
         paramsMap.put("typeNo","3");
@@ -235,10 +260,15 @@ public class AnswercardServiceImpl implements AnswercardService {
         paramsMap.put("answerNo7","1|");
         int up2 = answercardDao.queryCondtionEvaluate(paramsMap);
 
-        ArrayList<String> typeList = new ArrayList<>();
-        typeList.add("2");
-        typeList.add("3");
-        int down = userDao.queryCountUserType(typeList);
+        paramsMap.put("type1","2");
+        paramsMap.put("quentionId1","44");
+        paramsMap.put("type2","3");
+        paramsMap.put("quentionId2","68");
+        int down = userDao.queryCountNotUndef(paramsMap);
+        System.out.println("分母:"+down);
+
+
+
         int up = up1+up2;
 
         BigDecimal result = getResultData(up, down);
@@ -246,8 +276,10 @@ public class AnswercardServiceImpl implements AnswercardService {
     }
 
     @Override
-    public BigDecimal queryExactrate() {
+    public BigDecimal queryExactrate(Map<String, String> map) {
         HashMap<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("city",map.get("city"));
+        paramsMap.put("town",map.get("town"));
         paramsMap.put("typeNo","2");
         paramsMap.put("quesNo1","39");
         paramsMap.put("answerNo1","1");
@@ -258,10 +290,18 @@ public class AnswercardServiceImpl implements AnswercardService {
         paramsMap.put("answerNo1","1");
         int up2 = answercardDao.queryCondtionEvaluate(paramsMap);
 
-        ArrayList<String> typeList = new ArrayList<>();
-        typeList.add("2");
-        typeList.add("3");
-        int down = userDao.queryCountUserType(typeList);
+//        ArrayList<String> typeList = new ArrayList<>();
+//        typeList.add("2");
+//        typeList.add("3");
+//        int down = userDao.queryCountUserType(typeList);
+
+        paramsMap.put("type1","2");
+        paramsMap.put("quentionId1","39");
+        paramsMap.put("type2","3");
+        paramsMap.put("quentionId2","63");
+        int down = userDao.queryCountNotUndef(paramsMap);
+        System.out.println("分母:"+down);
+
         int up = up1+up2;
 
         BigDecimal result = getResultData(up, down);
@@ -270,25 +310,31 @@ public class AnswercardServiceImpl implements AnswercardService {
     }
 
     @Override
-    public BigDecimal queryPleasedrate() {
+    public BigDecimal queryPleasedrate(Map<String, String> map) {
         HashMap<String, Object> paramsMap = new HashMap<>();
-        ArrayList<String> answerList = new ArrayList<>();
+        paramsMap.put("city",map.get("city"));
+        paramsMap.put("town",map.get("town"));
         paramsMap.put("typeNo","1");
         paramsMap.put("quesNo8","16");
         int up1 = answercardDao.queryCondtionEvaluate(paramsMap);
 
         User user = new User();
         user.setType(1);
+        user.setCity(map.get("city"));
+        user.setTown(map.get("town"));
         int down1 = userDao.queryCountUser(user);
         BigDecimal result1 = getResultData(up1, down1);
 
 
-        paramsMap.put("typeNo","2");
+        paramsMap.put("type1","2");
         paramsMap.put("quesNo8","40");
         int up2 = answercardDao.queryCondtionEvaluate(paramsMap);
 
-        user.setType(2);
-        int down2 = userDao.queryCountUser(user);
+
+        paramsMap.put("type1","2");
+        paramsMap.put("quentionId1","40");
+        int down2= userDao.queryCountNotUndef(paramsMap);
+
         BigDecimal result2 = getResultData(up2, down2);
 
 
@@ -296,8 +342,9 @@ public class AnswercardServiceImpl implements AnswercardService {
         paramsMap.put("quesNo8","64");
         int up3 = answercardDao.queryCondtionEvaluate(paramsMap);
 
-        user.setType(3);
-        int down3 = userDao.queryCountUser(user);
+        paramsMap.put("type1","3");
+        paramsMap.put("quentionId1","64");
+        int down3= userDao.queryCountNotUndef(paramsMap);
         BigDecimal result3 = getResultData(up3, down3);
 
 
@@ -305,8 +352,9 @@ public class AnswercardServiceImpl implements AnswercardService {
         paramsMap.put("quesNo8","84");
         int up4 = answercardDao.queryCondtionEvaluate(paramsMap);
 
-        user.setType(4);
-        int down4 = userDao.queryCountUser(user);
+        paramsMap.put("type1","4");
+        paramsMap.put("quentionId1","84");
+        int down4= userDao.queryCountNotUndef(paramsMap);
         BigDecimal result4 = getResultData(up4, down4);
 
         result1 = result1.multiply(BigDecimal.valueOf(0.1));

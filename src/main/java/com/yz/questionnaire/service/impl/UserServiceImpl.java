@@ -6,6 +6,7 @@ import com.yz.questionnaire.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -90,22 +91,24 @@ public class UserServiceImpl implements UserService {
      * @return 实例对象
      */
     @Override
-    public int queryCountUser(Map<String, String>map) {
+    public ArrayList<Object> queryCountUser(Map<String, String>map) {
         User user = new User();
-        user.setType(map.get("type")!=null?Integer.valueOf(map.get("type")):null);
+//        user.setType(map.get("type")!=null?Integer.valueOf(map.get("type")):null);
         user.setCity(map.get("city"));
-        if(map.get("house")!=null&&!map.get("town").equals("全部")){
-            user.setTown(map.get("town"));
+        user.setTown(map.get("town"));
+        ArrayList<Object> userList = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            user.setType(i+1);
+            int num = userDao.queryCountUser(user);
+            userList.add(num);
         }
-        if(map.get("house")!=null&&!map.get("house").equals("全部")){
-            user.setTown(map.get("house"));
-        }
-        return this.userDao.queryCountUser(user);
+        return userList;
     }
 
+
     @Override
-    public int queryCountUserType(List<String> typeList) {
-        return this.userDao.queryCountUserType(typeList);
+    public int queryCountUserType(Map<String, Object> map) {
+        return this.userDao.queryCountUserType(map);
     }
 
 

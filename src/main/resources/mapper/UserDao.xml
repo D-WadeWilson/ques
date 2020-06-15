@@ -58,10 +58,10 @@
             <if test="company != null and company != ''">
                 and company = #{company}
             </if>
-            <if test="city != null and city != ''">
+            <if test="city != null and city != ''and city!='全部'" >
                 and city = #{city}
             </if>
-            <if test="town != null and town != ''">
+            <if test="town != null and town != '' and town!='全部'">
                 and town = #{town}
             </if>
             <if test="house != null and house != ''">
@@ -80,7 +80,7 @@
     </select>
 
 
-    <select id="queryCountUserType" resultType="java.lang.Integer" >
+    <select id="queryCountUserType" parameterType="java.util.Map" resultType="java.lang.Integer" >
         select
         count(*)
         from questionnaire.user
@@ -90,7 +90,28 @@
                      open="(" close=")" separator=",">
                 #{type}
             </foreach>
+            <if test="city != null and city != '' and city!='全部'">
+                and city = #{city}
+            </if>
+            <if test="town != null and town != '' and town!='全部'">
+                and town = #{town}
+            </if>
         </where>
+    </select>
+
+    <select id="queryCountNotUndef" parameterType="java.util.Map" resultType="java.lang.Integer" >
+        SELECT COUNT(1) FROM(
+        SELECT t1.id FROM `user` t1
+        LEFT JOIN answercard t2 on t1.id = t2.userId
+        WHERE (t1.type = #{type1}  AND t2.questionId = #{quentionId1} AND t2.answer &lt;&gt; "undefined")
+        or (t1.type = #{type2} AND t2.questionId = #{quentionId2} AND t2.answer &lt;&gt; "undefined")
+        <if test="city != null and city != '' and city!='全部'">
+            and t1.city = #{city}
+        </if>
+        <if test="town != null and town != '' and town!='全部'">
+            and t1.town = #{town}
+        </if>
+        GROUP BY t1.id)t
     </select>
 
 

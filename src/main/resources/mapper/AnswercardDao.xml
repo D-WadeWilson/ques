@@ -89,8 +89,13 @@
         <if test="quesNo8 != null and quesNo8 != ''">
             ((t1.questionId = #{quesNo8} and t1.answer in ('1','2')))
         </if>
-
         )
+        <if test="city != null and city != '' and city!='全部'">
+            and t2.city = #{city}
+        </if>
+        <if test="town != null and town != '' and town!='全部'">
+            and t2.town = #{town}
+        </if>
         GROUP BY t1.userId) t
     </select>
 
@@ -113,6 +118,12 @@
             ))
         </if>
         )
+        <if test="city != null and city != '' and city!='全部'">
+            and t2.city = #{city}
+        </if>
+        <if test="town != null and town != '' and town!='全部'">
+            and t2.town = #{town}
+        </if>
         GROUP BY t1.userId) t
     </select>
 
