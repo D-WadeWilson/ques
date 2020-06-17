@@ -369,7 +369,7 @@ public class AnswercardServiceImpl implements AnswercardService {
     private BigDecimal getResultData(int up, int down) {
         BigDecimal result = new BigDecimal(0);
         if(0 != down){
-            result = BigDecimal.valueOf(up).divide(BigDecimal.valueOf(down),2,BigDecimal.ROUND_HALF_UP);
+            result = BigDecimal.valueOf(up).divide(BigDecimal.valueOf(down),4,BigDecimal.ROUND_HALF_UP);
         }
         return result;
     }

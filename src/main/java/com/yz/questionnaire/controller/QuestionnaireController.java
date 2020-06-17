@@ -3,18 +3,15 @@ package com.yz.questionnaire.controller;
 
 
 import com.google.gson.Gson;
-import com.yz.questionnaire.entity.Answercard;
-import com.yz.questionnaire.entity.Paper;
-import com.yz.questionnaire.entity.Question;
-import com.yz.questionnaire.entity.User;
+import com.yz.questionnaire.Utils.UserUtils;
+import com.yz.questionnaire.entity.*;
 import com.yz.questionnaire.service.AnswercardService;
 import com.yz.questionnaire.service.PaperService;
 import com.yz.questionnaire.service.QuestionService;
 import com.yz.questionnaire.service.UserService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -33,6 +30,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("question")
+@CrossOrigin
 public class QuestionnaireController {
     /**
      * 服务对象
@@ -65,8 +63,8 @@ public class QuestionnaireController {
      * @return
      */
     @PostMapping("selectAnalyzeData")
-    public Map<String,String> selectData(@RequestParam(value = "data",required = false)String data){
-
+    public String selectData(@RequestParam(value = "data",required = false)String data){
+        System.out.println(data);
         Map<String, String> map = getDataMap(data);
         List userList = userService.queryCountUser(map);
 
@@ -104,8 +102,26 @@ public class QuestionnaireController {
         resultMap.put("exactrate", String.valueOf(exactrate));
         resultMap.put("pleasedrate", String.valueOf(pleasedrate));
 
+        Gson gson = new Gson();
+        String result = gson.toJson(resultMap);
+        System.out.println(result);
+//        String result = String.valueOf(resultMap);
+        return result;
+    }
 
-        return resultMap;
+    @PostMapping ("export")
+//    public ResponseEntity<byte[]> exportEmp(@RequestParam(value = "data",required = false)String data){
+    public ResponseEntity<byte[]> exportEmp(@RequestParam(value = "city",required = false)String city,@RequestParam(value = "town",required = false)String town){
+//        Map<String, String> map = getDataMap(data);
+
+        HashMap<String, String> paramsMap = new HashMap<>();
+        paramsMap.put("city",city);
+        paramsMap.put("town",town);
+        List<UserExportDTO> userList = userService.userInfoExport(paramsMap);
+        ResponseEntity<byte[]> responseEntity = UserUtils.exportUser(userList);
+        System.out.println(responseEntity);
+        return responseEntity;
+
     }
 
 //

@@ -608,26 +608,26 @@
  						
  						<div class="question">
  							<p>23.您是从哪种渠道知晓帮扶救助政策？</p><div id="Q23">
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q23" id="" value="1" >工会
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q23" id="" value="1" >工会
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q23" id="" value="2" >网络
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q23" id="" value="2" >网络
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q23" id="" value="3" >电视报纸等媒体
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q23" id="" value="3" >电视报纸等媒体
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q23" id="" value="4" >街道、社区宣传栏
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q23" id="" value="4" >街道、社区宣传栏
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q23" id="" value="5" >发放传单
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q23" id="" value="5" >发放传单
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q23" id="" value="6" >邻居
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q23" id="" value="6" >邻居
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q23" id="" value="7" >其他
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q23" id="" value="7" >其他
 <input type="text" class="form-inline input_after_text" id="Q23" placeholder="" style="">。
  							</label></div>
  						</div>
@@ -1069,10 +1069,17 @@ function submitinfo(){
 		q21+=$('#Q21').val();
 	}
 	q22 = $("input[name='Q22']:checked").val();
-	q23 = $("input[name='Q23']:checked").val();
-	if (q23 =="7" && $('#Q23').val().length>0) {
-		q23+=$('#Q23').val();
-	}
+//	q23 = $("input[name='Q23']:checked").val();
+//	if (q23 =="7" && $('#Q23').val().length>0) {
+//		q23+=$('#Q23').val();
+//	}
+	var str188 = $("#Q22").val();
+    $('input[name="Q22"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q23 += $(this).val();
+            if($(this).val()=='7' && str.length > 0){
+            		q23 += str188;
+            }   
+    });
 	q24 = $("input[name='Q24']:checked").val();
 	if (q24 =="3" && $('#Q24').val().length>0) {
 		q24 += $('#Q24').val();

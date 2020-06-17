@@ -17,6 +17,17 @@
         <result property="addtime" column="addTime" jdbcType="TIMESTAMP"/>
     </resultMap>
 
+    <resultMap type="com.yz.questionnaire.entity.UserExportDTO" id="UserExportDTO">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="town" column="town" jdbcType="VARCHAR"/>
+        <result property="house" column="house" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="answer" column="answer" jdbcType="VARCHAR"/>
+    </resultMap>
+
     <!--查询单个-->
     <select id="queryById" resultMap="UserMap">
         select
@@ -79,6 +90,28 @@
         </where>
     </select>
 
+
+    <select id="userInfoExport" parameterType="java.util.Map"  resultMap="UserExportDTO">
+        SELECT
+            u.name,
+            u.city,
+            u.town,
+            u.house,
+            u.phone,
+            u.type,
+            group_concat(a.answer) as answer
+        FROM
+            questionnaire.user u
+                INNER JOIN
+            answercard a ON u.id = a.userId  where
+        <if test="city != null and city != ''and city!='全部'" >
+            u.city = #{city}
+        </if>
+        <if test="town != null and town != '' and town!='全部'">
+            and u.town = #{town}
+        </if>
+        group by u.id order by u.type
+    </select>
 
     <select id="queryCountUserType" parameterType="java.util.Map" resultType="java.lang.Integer" >
         select

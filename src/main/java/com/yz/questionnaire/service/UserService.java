@@ -1,6 +1,7 @@
 package com.yz.questionnaire.service;
 
 import com.yz.questionnaire.entity.User;
+import com.yz.questionnaire.entity.UserExportDTO;
 
 import java.util.List;
 import java.util.Map;
@@ -68,6 +69,8 @@ public interface UserService {
     List queryCountUser(Map<String, String> map);
 
     int queryCountUserType(Map<String, Object> map);
+
+    List<UserExportDTO> userInfoExport(Map<String, String> map);
 
 
 

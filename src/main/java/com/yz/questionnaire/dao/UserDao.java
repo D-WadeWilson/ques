@@ -1,6 +1,7 @@
 package com.yz.questionnaire.dao;
 
 import com.yz.questionnaire.entity.User;
+import com.yz.questionnaire.entity.UserExportDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
@@ -76,4 +77,6 @@ public interface UserDao {
     int queryCountUserType(Map<String,Object> paramsMap);
 
     int queryCountNotUndef(Map<String,Object> paramsMap);
+
+    List<UserExportDTO> userInfoExport(Map<String,String> paramsMap);
 }

@@ -128,7 +128,6 @@
     </select>
 
 
-
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into questionnaire.answercard(userId, paperId, questionId, answer, addTime)

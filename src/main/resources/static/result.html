@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>问卷调查汇总查询</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="Access-Control-Allow-Origin">
+
+
+      <!-- 引入 Bootstrap -->
+      <link rel="stylesheet" href="css/bootstrap.css" />
+      <link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<body>
+		<form role="form" id="form1">
+ 			<ul>
+ 				<li class="step1">
+ 					<div class="container" >
+					 	<div class="row">
+					 		<div class="tittle">
+					 			查询权限用户登录
+					 		</div>
+					 		
+							<div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">查询账户</label>
+							    <div class="col-xs-9" >
+							       <input type="text" class="form-control" id="name" placeholder="请输入查询用户名">
+							    </div>
+						    </div>
+						    <div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label">查询口令</label>
+							    <div class=" col-xs-9" >
+							       <input type="password" class="form-control" id="phone" placeholder="请输入查询口令">
+							    </div>
+						    </div>
+					</div>	
+					
+					
+					<!--<button type="button" class="previous btn btn-primary col-xs-5">问卷列表</button>-->
+					<div class="col-xs-2"></div>
+					<button type="button" class="next_button btn btn-primary col-xs-5">下一步</button>
+ 				</li>
+ 				<li class="step2">
+ 					<div class="container" >
+					 	<div class="row">
+					 		<div class="tittle">
+					 			选择查询区域
+					 		</div>
+					 		<div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label" id="cityarea">市县区选择 </label>
+							    <div>
+										<select name="town" id="town" onChange="nextChange()">
+											
+										</select>
+								</div>						    
+							</div>
+					 	</div>
+					 	<button type="button" class="col-xs-5 btn  btn-primary" onclick="submitinfo()" id="confirmbtn">查询</button>
+					 </div>
+				</li>
+				<li class="step3">
+ 					<div class="container" >
+					 	<div class="row">
+					 		<div class="tittle">
+					 			选择查询区域
+					 		</div>
+					 		<div class="form-group clearfix">
+							    <label class=" col-xs-3 control-label" id="cityarea">请选择 </label>
+							    <div>
+							    		<select name="city" id="city" onChange="cityChange()">
+
+							    		</select>
+										<select name="town1" id="town1">
+											
+										</select>
+								</div>						    
+							</div>
+					 	</div>
+					 	<button type="button" class="col-xs-5 btn  btn-primary" onclick="submitinfo()" id="confirmbtn">查询</button>
+					 </div>
+				</li>
+				
+				<li class="step4">
+ 					<div class="container" >
+					 	<div class="row">
+					 		<div class="tittle">
+					 			区域查询结果
+					 		</div>
+					 		<div class="form-group clearfix">
+					 			<div class="question"><p id="type0">查询地区：</p></div>
+							    <div class="question"><p id="type1">未建档户</p></div>
+								<div class="question"><p id="type2">未脱困户</p></div>
+								<div class="question"><p id="type3">已脱困户</p></div>
+								<div class="question"><p id="type4">已注销户</p></div>
+								<div class="question"><p id="type5">已注销户</p></div>
+								<div class="question"><p id="type6">已注销户</p></div>
+								<div class="question"><p id="type7">已注销户</p></div>
+								<div class="question"><p id="type8">已注销户</p></div>
+								<div class="question"><p id="type9">已注销户</p></div>
+								<div class="question"><p id="type10">已注销户</p></div>
+								<div class="question"><p id="type11">已注销户</p></div>
+								<div class="question"><p id="type12">已注销户</p></div>
+							</div>
+					 	</div>
+					 		<button type="button" class="previous btn btn-primary col-xs-5">上一步</button>
+							<div class="col-xs-2"></div>
+							
+								<button type="button" class="col-xs-5 btn  btn-primary" onclick="download()" id="downbtn">下载Excel表格</button>
+
+					 </div>
+				</li>
+	</ul>
+		</form>
+		
+		<form action="/question/export" id="form000" method="post">
+			<input type="hidden" name="city" id="citystr" value=""/>
+			<input type="hidden" name="town" id="townstr" value=""/>
+		</form>
+	</body>
+	
+</html>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script type="text/javascript" src="js/area.js" ></script>
+<script type="text/javascript" src="js/select.js" ></script>	
+<script>
+	var city = "";
+	//禁止浏览器前进后退
+	window.history.forward(-1);
+	$('body').on('touchmove','.slidebg',function () {
+    $(document.body).on('touchmove.prevUC', function(e) {
+        e.preventDefault();
+    		});
+	});
+	$('body').on('touchend','.slidebg',function () {
+   		$(document.body).off('touchmove.prevUC');
+	});
+	$(document).ready(function(){
+		
+		$(".step1").siblings().hide();
+		
+		$('.step1 .next_button').on('click',function  () {
+			var name = $('#name').val();//姓名
+			var phone = $('#phone').val();//电话
+			
+			var second = document.getElementById("town");
+			var city = document.getElementById("cityarea");
+			
+    			switch (name){
+    				case "query001":{
+    					city.innerHTML="查询权限为：合肥市";
+    					city="合肥市";
+	   					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('肥东县'));// 默认选中区
+            			second.options.add(new Option('肥西县'));
+            			second.options.add(new Option('长丰县'));
+            			second.options.add(new Option('庐江县'));
+            			second.options.add(new Option('巢湖市'));
+            			second.options.add(new Option('瑶海区'));
+            			second.options.add(new Option('庐阳区'));
+            			second.options.add(new Option('蜀山区'));
+            			second.options.add(new Option('包河区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				
+    				case "query002":{
+    					city.innerHTML="查询权限为：淮北市";
+    					city="淮北市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('相山区'));// 默认选中区
+            			second.options.add(new Option('杜集区'));
+            			second.options.add(new Option('烈山区'));
+            			second.options.add(new Option('濉溪县'));
+            			second.options.add(new Option('淮北煤矿行业'));
+    				}
+    				
+    					break;
+    				case "query003":{
+    					city.innerHTML="查询权限为：亳州市";
+    					city="亳州市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('谯城区'));// 默认选中区
+            			second.options.add(new Option('蒙城县'));
+            			second.options.add(new Option('涡阳县'));
+            			second.options.add(new Option('利辛县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query004":{
+    					city.innerHTML="查询权限为：宿州市";
+    					city="宿州市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('埇桥区'));// 默认选中区
+            			second.options.add(new Option('砀山县'));
+            			second.options.add(new Option('萧　县'));
+            			second.options.add(new Option('灵璧县'));
+            			second.options.add(new Option('泗　县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query005":{
+    					city.innerHTML="查询权限为：蚌埠市";
+    					city="蚌埠市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('龙子湖区'));// 默认选中区
+            			second.options.add(new Option('蚌山区'));
+            			second.options.add(new Option('禹会区'));
+            			second.options.add(new Option('淮上区'));
+            			second.options.add(new Option('五河县'));
+            			second.options.add(new Option('固镇县'));
+            			second.options.add(new Option('怀远县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query006":{
+    					city.innerHTML="查询权限为：阜阳市";
+    					city="阜阳市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('颍州区'));// 默认选中区
+            			second.options.add(new Option('颍泉区'));
+            			second.options.add(new Option('颍东区'));
+            			second.options.add(new Option('颍上县'));
+            			second.options.add(new Option('界首市'));
+            			second.options.add(new Option('临泉县'));
+            			second.options.add(new Option('阜南县'));
+            			second.options.add(new Option('太和县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query007":{
+    					city.innerHTML="查询权限为：淮南市";
+    					city="淮南市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('凤台县'));// 默认选中区
+            			second.options.add(new Option('寿县'));
+            			second.options.add(new Option('大通区'));
+            			second.options.add(new Option('田家庵区'));
+            			second.options.add(new Option('谢家集区'));
+            			second.options.add(new Option('八公山区'));
+            			second.options.add(new Option('潘集区'));
+            			second.options.add(new Option('毛集试验区'));
+            			second.options.add(new Option('淮南煤矿行业'));
+    				}
+    				
+    					break;
+    				case "query008":{
+    					city.innerHTML="查询权限为：滁州市";
+    					city="滁州市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('琅琊区'));// 默认选中区
+            			second.options.add(new Option('南谯区'));
+            			second.options.add(new Option('天长市'));
+            			second.options.add(new Option('明光市'));
+            			second.options.add(new Option('全椒县'));
+            			second.options.add(new Option('来安县'));
+            			second.options.add(new Option('凤阳县'));
+            			second.options.add(new Option('定远县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query009":{
+    					city.innerHTML="查询权限为：六安市";
+    					city="六安市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('金安区'));// 默认选中区
+            			second.options.add(new Option('裕安区'));
+            			second.options.add(new Option('霍邱县'));
+            			second.options.add(new Option('霍山县'));
+            			second.options.add(new Option('金寨县'));
+            			second.options.add(new Option('舒城县'));
+            			second.options.add(new Option('叶集区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query010":{
+    					city.innerHTML="查询权限为：马鞍山市";
+    					city="马鞍山市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('花山区'));// 默认选中区
+            			second.options.add(new Option('雨山区'));
+            			second.options.add(new Option('博望县'));
+            			second.options.add(new Option('含山县'));
+            			second.options.add(new Option('和县'));
+            			second.options.add(new Option('当涂县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query011":{
+    					city.innerHTML="查询权限为：芜湖市";
+    					city="芜湖市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('镜湖区'));// 默认选中区
+            			second.options.add(new Option('弋江区'));
+            			second.options.add(new Option('鸠江区'));
+            			second.options.add(new Option('三山区'));
+            			second.options.add(new Option('无为市'));
+            			second.options.add(new Option('芜湖县'));
+            			second.options.add(new Option('繁昌县'));
+            			second.options.add(new Option('南陵县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query012":{
+    					city.innerHTML="查询权限为：宣城市";
+    					city="宣城市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('宣州区'));// 默认选中区
+            			second.options.add(new Option('郎溪县'));
+            			second.options.add(new Option('广德市'));
+            			second.options.add(new Option('宁国市'));
+            			second.options.add(new Option('泾　县'));
+            			second.options.add(new Option('绩溪县'));
+            			second.options.add(new Option('旌德县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query013":{
+    					city.innerHTML="查询权限为：铜陵市";
+    					city="铜陵市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('枞阳县'));// 默认选中区
+            			second.options.add(new Option('铜官区'));
+            			second.options.add(new Option('郊　区'));
+            			second.options.add(new Option('义安区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query014":{
+    					city.innerHTML="查询权限为：池州市";
+    					city="池州市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('贵池区'));// 默认选中区
+            			second.options.add(new Option('青阳县'));
+            			second.options.add(new Option('石台县'));
+            			second.options.add(new Option('东至县'));
+            			second.options.add(new Option('九华山风景区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query015":{
+    					city.innerHTML="查询权限为：安庆市";
+    					city="安庆市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('迎江区'));// 默认选中区
+            			second.options.add(new Option('大观区'));
+            			second.options.add(new Option('宜秀区'));
+            			second.options.add(new Option('怀宁县'));
+            			second.options.add(new Option('桐城市'));
+            			second.options.add(new Option('潜山市'));
+            			second.options.add(new Option('太湖县'));
+            			second.options.add(new Option('宿松县'));
+            			second.options.add(new Option('望江县'));
+            			second.options.add(new Option('岳西县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "query016":{
+    					city.innerHTML="查询权限为：黄山市";
+    					city="黄山市";
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('屯溪区'));// 默认选中区
+            			second.options.add(new Option('黄山区'));
+            			second.options.add(new Option('徽州区'));
+            			second.options.add(new Option('歙　县'));
+            			second.options.add(new Option('休宁县'));
+            			second.options.add(new Option('黟　县'));
+            			second.options.add(new Option('祁门县'));
+            			second.options.add(new Option('黄山风景区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				default:
+    					break;
+    			}
+//			$('.step2').show();
+//					$('.step2').siblings().hide();
+			var first = document.getElementById("city");
+			var second = document.getElementById("town1");
+
+			if (name=="query000") {
+				first.options.add(new Option('全部'));// 默认选中区
+				first.options.add(new Option('合肥市'));
+				first.options.add(new Option('淮北市'));
+				first.options.add(new Option('亳州市'));
+				first.options.add(new Option('宿州市'));
+				first.options.add(new Option('蚌埠市'));
+				first.options.add(new Option('阜阳市'));
+				first.options.add(new Option('淮南市'));
+				first.options.add(new Option('滁州市'));
+				first.options.add(new Option('六安市'));
+				first.options.add(new Option('马鞍山市'));
+				first.options.add(new Option('芜湖市'));
+				first.options.add(new Option('宣城市'));
+				first.options.add(new Option('铜陵市'));
+				first.options.add(new Option('池州市'));
+				first.options.add(new Option('安庆市'));
+				first.options.add(new Option('黄山市'));			
+				second.options.add(new Option('全部'));// 默认选中区
+
+			}
+			if (typeof(name)=="undefined" || typeof(phone)=="undefined" || name.length==0 || phone.length==0) {
+				alert("登录信息请填写完整！");
+				return;
+			} else {
+				if ((name=="query000"||name=="query001"||name=="query002"||name=="query003"||name=="query004"||name=="query005"||name=="query006"||name=="query007"||name=="query008"||name=="query009"||name=="query010"||name=="query011"||name=="query012"||name=="query013"||name=="query014"||name=="query015"||name=="query016") && phone=="query123456") {
+					if (name=="query000") {
+						$('.step3').show();
+						$('.step3').siblings().hide();
+					} else {
+						$('.step2').show();
+						$('.step2').siblings().hide();
+					}
+					
+				} else{
+					
+					alert("登录用户名或密码错误！");
+				}
+				
+			}
+		});
+		
+		$('.step2 .next_button').on('click',function  () {	
+			
+			
+			$('.step3').show();
+			$('.step3').siblings().hide();
+		});
+		$('.step2 .previous').on('click',function  () {	
+			$('.step1').show();
+			$('.step1').siblings().hide();
+		});
+		$('.step4 .previous').on('click',function  () {	
+			var name = $('#name').val();//姓名
+			if (name=="query000") {
+						$('.step3').show();
+						$('.step3').siblings().hide();
+					} else {
+						$('.step2').show();
+						$('.step2').siblings().hide();
+					}
+		});
+	});
+function cityChange(){
+	var citychoose = $('#city').val();//市区
+	var cityarea = document.getElementById("cityarea");
+	var second = document.getElementById("town1");
+	second.options.length=0;
+	switch (citychoose){
+		case "全部":
+		{
+			second.options.add(new Option('全部'));// 默认选中区
+		}
+			break;
+		case "合肥市":{
+	   					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('肥东县'));// 默认选中区
+            			second.options.add(new Option('肥西县'));
+            			second.options.add(new Option('长丰县'));
+            			second.options.add(new Option('庐江县'));
+            			second.options.add(new Option('巢湖市'));
+            			second.options.add(new Option('瑶海区'));
+            			second.options.add(new Option('庐阳区'));
+            			second.options.add(new Option('蜀山区'));
+            			second.options.add(new Option('包河区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				
+    				case "淮北市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('相山区'));// 默认选中区
+            			second.options.add(new Option('杜集区'));
+            			second.options.add(new Option('烈山区'));
+            			second.options.add(new Option('濉溪县'));
+            			second.options.add(new Option('淮北煤矿行业'));
+    				}
+    				
+    					break;
+    				case "亳州市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('谯城区'));// 默认选中区
+            			second.options.add(new Option('蒙城县'));
+            			second.options.add(new Option('涡阳县'));
+            			second.options.add(new Option('利辛县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "宿州市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('埇桥区'));// 默认选中区
+            			second.options.add(new Option('砀山县'));
+            			second.options.add(new Option('萧　县'));
+            			second.options.add(new Option('灵璧县'));
+            			second.options.add(new Option('泗　县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "蚌埠市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('龙子湖区'));// 默认选中区
+            			second.options.add(new Option('蚌山区'));
+            			second.options.add(new Option('禹会区'));
+            			second.options.add(new Option('淮上区'));
+            			second.options.add(new Option('五河县'));
+            			second.options.add(new Option('固镇县'));
+            			second.options.add(new Option('怀远县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "阜阳市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('颍州区'));// 默认选中区
+            			second.options.add(new Option('颍泉区'));
+            			second.options.add(new Option('颍东区'));
+            			second.options.add(new Option('颍上县'));
+            			second.options.add(new Option('界首市'));
+            			second.options.add(new Option('临泉县'));
+            			second.options.add(new Option('阜南县'));
+            			second.options.add(new Option('太和县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "淮南市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('凤台县'));// 默认选中区
+            			second.options.add(new Option('寿县'));
+            			second.options.add(new Option('大通区'));
+            			second.options.add(new Option('田家庵区'));
+            			second.options.add(new Option('谢家集区'));
+            			second.options.add(new Option('八公山区'));
+            			second.options.add(new Option('潘集区'));
+            			second.options.add(new Option('毛集试验区'));
+            			second.options.add(new Option('淮南煤矿行业'));
+    				}
+    				
+    					break;
+    				case "滁州市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('琅琊区'));// 默认选中区
+            			second.options.add(new Option('南谯区'));
+            			second.options.add(new Option('天长市'));
+            			second.options.add(new Option('明光市'));
+            			second.options.add(new Option('全椒县'));
+            			second.options.add(new Option('来安县'));
+            			second.options.add(new Option('凤阳县'));
+            			second.options.add(new Option('定远县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "六安市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('金安区'));// 默认选中区
+            			second.options.add(new Option('裕安区'));
+            			second.options.add(new Option('霍邱县'));
+            			second.options.add(new Option('霍山县'));
+            			second.options.add(new Option('金寨县'));
+            			second.options.add(new Option('舒城县'));
+            			second.options.add(new Option('叶集区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "马鞍山市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('花山区'));// 默认选中区
+            			second.options.add(new Option('雨山区'));
+            			second.options.add(new Option('博望县'));
+            			second.options.add(new Option('含山县'));
+            			second.options.add(new Option('和县'));
+            			second.options.add(new Option('当涂县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "芜湖市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('镜湖区'));// 默认选中区
+            			second.options.add(new Option('弋江区'));
+            			second.options.add(new Option('鸠江区'));
+            			second.options.add(new Option('三山区'));
+            			second.options.add(new Option('无为市'));
+            			second.options.add(new Option('芜湖县'));
+            			second.options.add(new Option('繁昌县'));
+            			second.options.add(new Option('南陵县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "宣城市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('宣州区'));// 默认选中区
+            			second.options.add(new Option('郎溪县'));
+            			second.options.add(new Option('广德市'));
+            			second.options.add(new Option('宁国市'));
+            			second.options.add(new Option('泾　县'));
+            			second.options.add(new Option('绩溪县'));
+            			second.options.add(new Option('旌德县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "铜陵市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('枞阳县'));// 默认选中区
+            			second.options.add(new Option('铜官区'));
+            			second.options.add(new Option('郊　区'));
+            			second.options.add(new Option('义安区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "池州市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('贵池区'));// 默认选中区
+            			second.options.add(new Option('青阳县'));
+            			second.options.add(new Option('石台县'));
+            			second.options.add(new Option('东至县'));
+            			second.options.add(new Option('九华山风景区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "安庆市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('迎江区'));// 默认选中区
+            			second.options.add(new Option('大观区'));
+            			second.options.add(new Option('宜秀区'));
+            			second.options.add(new Option('怀宁县'));
+            			second.options.add(new Option('桐城市'));
+            			second.options.add(new Option('潜山市'));
+            			second.options.add(new Option('太湖县'));
+            			second.options.add(new Option('宿松县'));
+            			second.options.add(new Option('望江县'));
+            			second.options.add(new Option('岳西县'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+    				case "黄山市":{
+    					second.options.add(new Option('全部'));// 默认选中区
+    					second.options.add(new Option('屯溪区'));// 默认选中区
+            			second.options.add(new Option('黄山区'));
+            			second.options.add(new Option('徽州区'));
+            			second.options.add(new Option('歙　县'));
+            			second.options.add(new Option('休宁县'));
+            			second.options.add(new Option('黟　县'));
+            			second.options.add(new Option('祁门县'));
+            			second.options.add(new Option('黄山风景区'));
+            			second.options.add(new Option('地市级总工会帮扶中心'));
+    				}
+    				
+    					break;
+		default:
+			break;
+	}
+}
+function submitinfo(){
+	var name = $('#name').val();//姓名
+	var town = $('#town').val();//区县等
+	if (name=="query000") {
+		town = $('#town1').val();
+		city = $('#city').val();
+	}
+	switch (name){
+		
+		case "query001":
+			city="合肥市";
+			break;
+		case "query002":
+			city="淮北市";
+			break;
+		case "query00=3":
+			city="亳州市";
+			break;
+		case "query004":
+			city="宿州市";
+			break;
+		case "query005":
+			city="蚌埠市";
+			break;
+		case "query006":
+			city="阜阳市";
+			break;
+		case "query007":
+			city="淮南市";
+			break;
+		case "query008":
+			city="滁州市";
+			break;
+		case "query009":
+			city="六安市";
+			break;
+		case "query010":
+			city="马鞍山市";
+			break;
+		case "query011":
+			city="芜湖市";
+			break;
+		case "query012":
+			city="宣城市";
+			break;
+		case "query013":
+			city="铜陵市";
+			break;
+		case "query014":
+			city="池州市";
+			break;
+		case "query015":
+			city="安庆市";
+			break;
+		case "query016":
+			city="黄山市";
+			break;
+		default:
+			break;
+	}
+//	alert("当前查询区域为：安徽省"+city+town);
+	$('#type0').html("当前查询区域为：安徽省"+city+town+"\n注：统计概率未百分化");
+	var dic = {'city':city,'town':town};
+	var tempstr = "{";
+	for (var p in dic) {
+		tempstr += ('"'+p+'":"'+dic[p]+'",');
+	}
+	tempstr = tempstr.substr(0,tempstr.length-1);
+	tempstr+='}';
+	document.getElementById("confirmbtn").disabled=true;
+ 	$.ajax({
+ 	type:"post",
+ 	url:"/question/selectAnalyzeData",
+	data:{data:tempstr},
+	
+ 	success:function(res){
+           //请求成功时处理
+           $('.answer-wrap').append(res);//通过append的方式动态添加html代码
+           if (res) {
+           		alert("数据查询成功！");
+           		document.getElementById("confirmbtn").disabled=false;
+				var obj = JSON.parse(res);
+				$('#type1').html('未建档家庭数：'+obj.type1+'户');
+			   $('#type2').html('未脱困家庭数：'+obj.type2+'户');
+			   $('#type3').html('已脱困家庭数：'+obj.type3+'户');
+			   $('#type4').html('已注销家庭数：'+obj.type4+'户');
+			   $('#type5').html('错评率：'+obj.wrongrate);
+			   $('#type6').html('漏评率：'+obj.leakageassessmentrate);
+			   $('#type7').html('错退率：'+obj.falseregressionrate);
+			   $('#type8').html('漏退率：'+obj.leakagerate);
+			   $('#type9').html('信息比对率：'+obj.comparison);
+			   $('#type10').html('结对帮扶覆盖率：'+obj.pairingrate);
+			   $('#type11').html('帮扶方式精准率：'+obj.exactrate);
+			   $('#type12').html('帮扶工作满意度：'+obj.pleasedrate);
+           		$('.step4').show();		
+		   		$('.step4').siblings().hide();
+           }
+ 		},
+ 	error:function(res){
+           //请求成功时处理
+           alert("数据返回失败，请重试！");
+           alert(res);
+           document.getElementById("confirmbtn").disabled=false;
+ 		}
+ 	});
+ 	
+};
+function download(){
+	
+	var name = $('#name').val();//姓名
+	var town = $('#town').val();//区县等
+	if (name=="query000") {
+		town = $('#town1').val();
+		city = $('#city').val();
+	}
+	switch (name){
+		
+		case "query001":
+			city="合肥市";
+			break;
+		case "query002":
+			city="淮北市";
+			break;
+		case "query00=3":
+			city="亳州市";
+			break;
+		case "query004":
+			city="宿州市";
+			break;
+		case "query005":
+			city="蚌埠市";
+			break;
+		case "query006":
+			city="阜阳市";
+			break;
+		case "query007":
+			city="淮南市";
+			break;
+		case "query008":
+			city="滁州市";
+			break;
+		case "query009":
+			city="六安市";
+			break;
+		case "query010":
+			city="马鞍山市";
+			break;
+		case "query011":
+			city="芜湖市";
+			break;
+		case "query012":
+			city="宣城市";
+			break;
+		case "query013":
+			city="铜陵市";
+			break;
+		case "query014":
+			city="池州市";
+			break;
+		case "query015":
+			city="安庆市";
+			break;
+		case "query016":
+			city="黄山市";
+			break;
+		default:
+			break;
+	}
+	$('#citystr').val(city);	
+	$('#townstr').val(town);
+	$('#form000').submit();
+	
+	
+ 	
+};
+</script>

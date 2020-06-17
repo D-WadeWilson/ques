@@ -2,11 +2,13 @@ package com.yz.questionnaire.service.impl;
 
 import com.yz.questionnaire.entity.User;
 import com.yz.questionnaire.dao.UserDao;
+import com.yz.questionnaire.entity.UserExportDTO;
 import com.yz.questionnaire.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -109,6 +111,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public int queryCountUserType(Map<String, Object> map) {
         return this.userDao.queryCountUserType(map);
+    }
+
+    @Override
+    public List<UserExportDTO> userInfoExport(Map<String, String> map) {
+        return userDao.userInfoExport(map);
     }
 
 

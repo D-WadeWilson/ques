@@ -362,7 +362,7 @@
 								        <input type="radio"  name="Q15" id="" value="2" > 省级
 								    </label>
 								    <label class="radio-inline">
-								        <input type="radio"  name="Q15" id="" value="3" > 地市级
+								        <input type="radio"  name="Q15" id="" value="3" > 地市级及其他
 								    </label>
 								</div>
 					 		</div>
@@ -423,26 +423,26 @@
  						<div class="question">
  							<p>18.您是从哪种渠道知晓帮扶救助政策？</p>
  							<div id="Q18">
- 								<label class="radio-inline">
- 								<input type="radio"  name="Q18" id="" value="1" >工会
+ 								<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q18" id="" value="1" >工会
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q18" id="" value="2" >网络
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q18" id="" value="2" >网络
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q18" id="" value="3" >电视报纸等媒体
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q18" id="" value="3" >电视报纸等媒体
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q18" id="" value="4" >街道、社区宣传栏
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q18" id="" value="4" >街道、社区宣传栏
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q18" id="" value="5" >发放传单
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q18" id="" value="5" >发放传单
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q18" id="" value="6" >邻居
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q18" id="" value="6" >邻居
  							</label>
- 							<label class="radio-inline">
- 								<input type="radio"  name="Q18" id="" value="7" >其他
+ 							<label class="checkbox-inline">
+ 								<input type="checkbox"  name="Q18" id="" value="7" >其他
  								<input type="text" class="form-inline input_after_text" id="Q18" placeholder="" style="">。
  							</div>
  							</label>
@@ -608,10 +608,10 @@
             		alert("第14题尚未作答！");
             		return;
             	}
-			if (typeof($("input[name='Q14']:checked").val())=="undefined" && $("input[name='Q13']:checked").val()!=8&&$("input[name='Q14']:checked").val()!=2) {
-            		alert("第15题尚未作答！");
-            		return;
-            	}
+//			if (typeof($("input[name='Q14']:checked").val())=="undefined" && $("input[name='Q13']:checked").val()!=8&&$("input[name='Q14']:checked").val()!=2) {
+//          		alert("第15题尚未作答！");
+//          		return;
+//          	}
 			$('.step5').show();
 			$('.step5').siblings().hide();
 		});
@@ -744,11 +744,18 @@ function submitinfo(){
 	
 	q17 =$("input[name='Q17']:checked").val();
 
-	q18 = $("input[name='Q18']:checked").val();
-
-	if (q18 =="7" && $('#Q18').val().length>0) {
-		q18+=$('#Q18').val();
-	}
+//	q18 = $("input[name='Q18']:checked").val();
+//
+//	if (q18 =="7" && $('#Q18').val().length>0) {
+//		q18+=$('#Q18').val();
+//	}
+	var str188 = $("#Q18").val();
+    $('input[name="Q18"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
+            q18 += $(this).val();
+            if($(this).val()=='7' && str.length > 0){
+            		q18 += str188;
+            }   
+    });
 	q19 = $("input[name='Q19']:checked").val();
 	if (q19 == "3" && $('#Q19').val().length>0) {
 		q19+=$('#Q19').val();

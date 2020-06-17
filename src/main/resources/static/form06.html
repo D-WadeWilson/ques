@@ -104,10 +104,10 @@
 							<p>1.基层工会是否已制定或具有相应的困难职工档案管理办法？</p>
 							<div>
 									<label class="radio-inline">
-								        <input type="radio"  name="Q2" id="" value="1" > 是
+								        <input type="radio"  name="Q1" id="" value="1" > 是
 								    </label>
 								    <label class="radio-inline">
-								        <input type="radio" name="Q2" id=""  value="2" > 否
+								        <input type="radio" name="Q1" id=""  value="2" > 否
 								    </label>
 							</div>
 				</div>
@@ -119,10 +119,10 @@
 							<p>2.基层工会是否已按照规定将全国和省级困难职工档案录入帮扶系统？</p>
 							<div>
 									<label class="radio-inline">
-								        <input type="radio"  name="Q3" id="" value="1" > 是
+								        <input type="radio"  name="Q2" id="" value="1" > 是
 								    </label>
 								    <label class="radio-inline">
-								        <input type="radio" name="Q3" id=""  value="2" > 否
+								        <input type="radio" name="Q2" id=""  value="2" > 否
 								    </label>
 							</div>
 				</div>
@@ -273,7 +273,7 @@
 				<div class="container">
 					<div class="tittle">附件1：困难职工档案查验记录表</div>
 					<div class="question">
-						<p>基层工会：<input type="text" class="form-inline input_after_text" id="" placeholder="" style=""></p>
+						<p>基层工会：<input type="text" class="form-inline input_after_text" id="loborname" placeholder="" style=""></p>
 					</div>
 					
 					
@@ -512,25 +512,26 @@ function submitinfo(){
 	var town = $('#town').val();//区县等
 	var house = $('#house').val();//街道小区
 	// 处理各问题答案
-	var q1=q2=q3=q4=q5=q6=q7=q8=q9=q10=q11=q12=q13=q14=q15="";
+	var q1=q2=q3=q4=q5=q6=q7=q8=q9=q10=q11=q12=q13=q14=q15=q16="";
 
 	q1 = $('#Q1-1').val()+"|"+$('#Q1-2').val()+"|"+$('#Q1-3').val()+"|"+$('#Q1-4').val()+"|"+$('#Q1-5').val();
-	q2 = $("input[name='Q2']:checked").val();
-    q3 = $("input[name='Q3']:checked").val();
-    q4 = $("input[name='Q4']:checked").val();
-	q5 = $("input[name='Q5']:checked").val();
-	q6 = $("input[name='Q6']:checked").val();
+	q2 = $("input[name='Q1']:checked").val();
+	q3 = $("input[name='Q2']:checked").val();
+    q4 = $("input[name='Q3']:checked").val();
+    q5 = $("input[name='Q4']:checked").val();
+	q6 = $("input[name='Q5']:checked").val();
+	q7 = $("input[name='Q6']:checked").val();
 	var str10 = $("#Q6").val();
     $('input[name="Q6-A"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
-            q6 += $(this).val();
+            q7 += $(this).val();
             if($(this).val()=='6' && str10.length > 0){
-            		q6 += str10;
+            		q7 += str10;
             }   
     });
-	q7 = $("input[name='Q7']:checked").val();
-	q8 = $("input[name='Q8']:checked").val();
-	q9 = $("input[name='Q9']:checked").val();
-	q10 = $("input[name='Q10']:checked").val();
+	q8 = $("input[name='Q7']:checked").val();
+	q9 = $("input[name='Q8']:checked").val();
+	q10 = $("input[name='Q9']:checked").val();
+	q11 = $("input[name='Q10']:checked").val();
 
 	var str11A = $("#Q11-A").val();
 	var tempA = "a";
@@ -556,22 +557,21 @@ function submitinfo(){
             		tempC += str11C;
             }   
     });
-    q11 = tempA +"|"+ tempB +"|"+ tempC;
+    q12 = tempA +"|"+ tempB +"|"+ tempC;
     
     var str11D = $("#Q11-D").val();
     $('input[name="Q11-D"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数  
-            q12 += $(this).val();
+            q13 += $(this).val();
             if($(this).val()=='a' && str11D.length > 0){
-            		q12 += str11D;
+            		q13 += str11D;
             }   
     });
-	q13 = $('#Q11-E').val();
-	q14 = $('#Q11-F').val();
-	q15 = $('#Q11-G').val();
-	
-	var dic = {'name':'工会问卷5','type':'6','lobor':lobor,'manager':manager,'phone':phone,'linkman':linkman,'city':city,'town':town,'house':house,
+	q14 = $('#Q11-E').val();
+	q15 = $('#Q11-F').val();
+	q16 = $('#Q11-G').val();
+	var dic = 	{'name':$("#loborname").val(),'type':'6','lobor':lobor,'manager':manager,'phone':phone,'linkman':linkman,'city':city,'town':town,'house':house,
 	'Q1':q1,'Q2':q2,'Q3':q3,'Q4':q4,'Q5':q5,'Q6':q6,'Q7':q7,'Q8':q8,'Q9':q9,'Q10':q10,
-	'Q11':q11,'Q12':q12,'Q13':q13,'Q14':q14,'Q15':q15};
+	'Q11':q11,'Q12':q12,'Q13':q13,'Q14':q14,'Q15':q15,'Q6':q16};
 	
 	var tempstr = "{";
 	for (var p in dic) {
